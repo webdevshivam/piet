@@ -1,0 +1,245 @@
+import { useState } from 'react';
+import { Link } from 'wouter';
+
+type NewsItemProps = {
+  image: string;
+  date: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+};
+
+const NewsItem = ({ image, date, category, title, description, link }: NewsItemProps) => (
+  <div className="bg-neutral-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+    <img 
+      src={image} 
+      alt={title} 
+      className="w-full h-48 object-cover"
+    />
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-4">
+        <span className="text-sm text-neutral-500">{date}</span>
+        <span className="bg-primary text-white text-xs px-2 py-1 rounded">{category}</span>
+      </div>
+      <h3 className="font-heading font-bold text-xl mb-2 text-primary">{title}</h3>
+      <p className="text-neutral-600 mb-4">{description}</p>
+      <Link href={link}>
+        <a className="text-secondary hover:text-secondary-dark font-semibold flex items-center">
+          Read More <i className="fas fa-arrow-right ml-2"></i>
+        </a>
+      </Link>
+    </div>
+  </div>
+);
+
+type EventItemProps = {
+  image: string;
+  date: string;
+  time: string;
+  title: string;
+  location: string;
+  link: string;
+};
+
+const EventItem = ({ image, date, time, title, location, link }: EventItemProps) => (
+  <div className="bg-neutral-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+    <img 
+      src={image} 
+      alt={title} 
+      className="w-full h-48 object-cover"
+    />
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-4">
+        <div>
+          <span className="text-sm font-medium text-secondary block">{date}</span>
+          <span className="text-xs text-neutral-500">{time}</span>
+        </div>
+        <div className="bg-accent text-primary font-bold text-xs px-2 py-1 rounded">Event</div>
+      </div>
+      <h3 className="font-heading font-bold text-xl mb-2 text-primary">{title}</h3>
+      <p className="text-neutral-600 mb-4 flex items-center">
+        <i className="fas fa-map-marker-alt mr-2 text-neutral-500"></i> {location}
+      </p>
+      <Link href={link}>
+        <a className="text-secondary hover:text-secondary-dark font-semibold flex items-center">
+          Register Now <i className="fas fa-arrow-right ml-2"></i>
+        </a>
+      </Link>
+    </div>
+  </div>
+);
+
+type NoticeItemProps = {
+  date: string;
+  title: string;
+  description: string;
+  link: string;
+  isImportant?: boolean;
+};
+
+const NoticeItem = ({ date, title, description, link, isImportant = false }: NoticeItemProps) => (
+  <div className="bg-neutral-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 p-6">
+    <div className="flex justify-between items-center mb-4">
+      <span className="text-sm text-neutral-500">{date}</span>
+      {isImportant && (
+        <span className="bg-secondary text-white text-xs px-2 py-1 rounded">Important</span>
+      )}
+    </div>
+    <h3 className="font-heading font-bold text-xl mb-2 text-primary">{title}</h3>
+    <p className="text-neutral-600 mb-4">{description}</p>
+    <Link href={link}>
+      <a className="text-secondary hover:text-secondary-dark font-semibold flex items-center">
+        View Details <i className="fas fa-arrow-right ml-2"></i>
+      </a>
+    </Link>
+  </div>
+);
+
+export default function NewsEventsSection() {
+  const [activeTab, setActiveTab] = useState<'news' | 'events' | 'notices'>('news');
+
+  const newsItems: NewsItemProps[] = [
+    {
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "May 10, 2025",
+      category: "Achievement",
+      title: "PIET Ranks in Top 100 Engineering Colleges",
+      description: "Poornima Institute of Engineering & Technology secures a position in the top 100 engineering colleges according to NIRF rankings 2025.",
+      link: "/news/1"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1603354350317-6f7aaa5911c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "April 28, 2025",
+      category: "Research",
+      title: "PIET Receives Major Research Grant",
+      description: "Our institution has been awarded a ₹1.5 crore research grant for sustainable energy solutions by the Department of Science & Technology.",
+      link: "/news/2"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "April 15, 2025",
+      category: "Partnership",
+      title: "New Industry Partnership Announced",
+      description: "PIET signs MoU with leading tech company to provide internship and placement opportunities for students.",
+      link: "/news/3"
+    }
+  ];
+
+  const eventItems: EventItemProps[] = [
+    {
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "June 15, 2025",
+      time: "10:00 AM - 4:00 PM",
+      title: "Annual Technical Symposium 2025",
+      location: "Main Auditorium, PIET Campus",
+      link: "/events/1"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "May 22, 2025",
+      time: "9:00 AM - 1:00 PM",
+      title: "Campus Recruitment Drive - TCS",
+      location: "Placement Cell, Admin Block",
+      link: "/events/2"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80",
+      date: "May 18, 2025",
+      time: "2:00 PM - 5:00 PM",
+      title: "Workshop on AI & Machine Learning",
+      location: "CSE Department, Block C",
+      link: "/events/3"
+    }
+  ];
+
+  const noticeItems: NoticeItemProps[] = [
+    {
+      date: "May 12, 2025",
+      title: "End Semester Examination Schedule",
+      description: "The end semester examinations for all programs will commence from June 10, 2025. The detailed schedule is now available.",
+      link: "/notices/1",
+      isImportant: true
+    },
+    {
+      date: "May 8, 2025",
+      title: "Fee Payment Deadline for Next Semester",
+      description: "Students are advised to pay their fees for the upcoming semester by June 15, 2025. Late fee will be applicable thereafter.",
+      link: "/notices/2",
+      isImportant: true
+    },
+    {
+      date: "May 5, 2025",
+      title: "Summer Internship Opportunities",
+      description: "Multiple companies are offering summer internships for pre-final year students. Register with the placement cell by May 20.",
+      link: "/notices/3"
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 lg:px-0">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">News & Events</h2>
+          <div className="mt-4 md:mt-0">
+            <div className="flex space-x-2">
+              <button 
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
+                  activeTab === 'news' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                }`}
+                onClick={() => setActiveTab('news')}
+              >
+                News
+              </button>
+              <button 
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
+                  activeTab === 'events' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                }`}
+                onClick={() => setActiveTab('events')}
+              >
+                Events
+              </button>
+              <button 
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
+                  activeTab === 'notices' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                }`}
+                onClick={() => setActiveTab('notices')}
+              >
+                Notices
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* News Tab Content */}
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'news' ? 'block' : 'hidden'}`}>
+          {newsItems.map((item, index) => (
+            <NewsItem key={index} {...item} />
+          ))}
+        </div>
+        
+        {/* Events Tab Content */}
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'events' ? 'block' : 'hidden'}`}>
+          {eventItems.map((item, index) => (
+            <EventItem key={index} {...item} />
+          ))}
+        </div>
+        
+        {/* Notices Tab Content */}
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'notices' ? 'block' : 'hidden'}`}>
+          {noticeItems.map((item, index) => (
+            <NoticeItem key={index} {...item} />
+          ))}
+        </div>
+        
+        <div className="text-center mt-10">
+          <Link href={activeTab === 'news' ? '/news' : activeTab === 'events' ? '/events' : '/notices'}>
+            <a className="inline-block bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-md transition duration-300">
+              View All {activeTab === 'news' ? 'News' : activeTab === 'events' ? 'Events' : 'Notices'}
+            </a>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
