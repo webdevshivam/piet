@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 
 type NewsItemProps = {
@@ -95,6 +95,43 @@ const NoticeItem = ({ date, title, description, link, isImportant = false }: Not
     </Link>
   </div>
 );
+
+// News Marquee Component
+const NewsMarquee = () => {
+  const headlines = [
+    "Admissions open for 2025-26 academic year - Apply Now!",
+    "PIET Ranks in Top 100 Engineering Colleges according to NIRF",
+    "Campus Recruitment Drive by TCS scheduled for May 22, 2025",
+    "New Research Grant of ₹1.5 crore awarded for sustainable energy solutions",
+    "National Conference on IoT & AI on June 10, 2025"
+  ];
+
+  return (
+    <div className="bg-primary py-2 text-white overflow-hidden mb-8 shadow-md">
+      <div className="flex items-center">
+        <div className="bg-secondary text-white font-bold px-4 py-1 flex items-center mr-4 whitespace-nowrap">
+          <i className="fas fa-bullhorn mr-2"></i> LATEST NEWS
+        </div>
+        <div className="marquee-container overflow-hidden relative flex-1">
+          <div className="animate-marquee flex items-center whitespace-nowrap">
+            {headlines.map((headline, index) => (
+              <div key={index} className="flex items-center mr-16">
+                <span className="bg-accent rounded-full w-2 h-2 mr-2"></span>
+                <span>{headline}</span>
+              </div>
+            ))}
+            {headlines.map((headline, index) => (
+              <div key={`repeat-${index}`} className="flex items-center mr-16">
+                <span className="bg-accent rounded-full w-2 h-2 mr-2"></span>
+                <span>{headline}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function NewsEventsSection() {
   const [activeTab, setActiveTab] = useState<'news' | 'events' | 'notices'>('news');

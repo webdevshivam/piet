@@ -64,13 +64,14 @@ export default function Header() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center">
             <img 
-              src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=70&q=80" 
+              src="/assets/pietlogo.png" 
               alt="Poornima Institute Logo" 
-              className="h-16 mr-4"
+              className="h-20 mr-4"
             />
             <div>
               <h1 className="text-primary font-heading font-bold text-2xl md:text-3xl leading-tight">Poornima Institute of</h1>
               <h2 className="text-secondary font-heading font-semibold text-xl md:text-2xl leading-tight">Engineering & Technology</h2>
+              <p className="text-xs text-neutral-700">Affiliated to RTU, Kota • Approved by AICTE & UGC under 2(f) • Accredited by NAAC</p>
             </div>
           </div>
           

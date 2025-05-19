@@ -16,19 +16,20 @@
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   
-  /* Modern color scheme - Deep Teal & Coral */
-  --primary: 180 66% 35%; /* Deep Teal */
-  --primary-light: 180 66% 45%;
-  --primary-dark: 180 66% 25%;
+  /* Color scheme based on Poornima Institute logo */
+  --primary: 247 37% 29%; /* Indigo Blue from Logo */
+  --primary-light: 247 37% 39%;
+  --primary-dark: 247 37% 24%;
   --primary-foreground: 0 0% 98%;
   
-  --secondary: 16 85% 55%; /* Coral */
-  --secondary-light: 16 85% 65%;
-  --secondary-dark: 16 85% 45%;
+  --secondary: 0 100% 40%; /* Red from Logo */
+  --secondary-light: 0 100% 50%;
+  --secondary-dark: 0 100% 30%;
   --secondary-foreground: 210 40% 98%;
   
-  --accent: 210 40% 96.1%;
-  --accent-light: 42 100% 70%;
+  --accent: 48 100% 50%; /* Yellow/Gold from Logo */
+  --accent-light: 48 100% 60%;
+  
   --accent-foreground: 222.2 47.4% 11.2%;
   
   --destructive: 0 84.2% 60.2%;
@@ -163,6 +164,11 @@
     to { opacity: 1; transform: scale(1); }
   }
   
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
   /* Animation classes */
   .animate-fadeIn {
     animation: fadeIn 0.7s ease-out forwards;
@@ -178,6 +184,26 @@
   
   .animate-scaleUp {
     animation: scaleUp 0.7s ease-out forwards;
+  }
+  
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  /* Accessibility features */
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 999;
+    padding: 1rem;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .skip-to-content:focus {
+    left: 0;
   }
   
   /* Glass morphism */
