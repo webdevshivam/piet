@@ -11,22 +11,26 @@ import PlacementSection from "@/components/PlacementSection";
 import ContactSection from "@/components/ContactSection";
 import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
+import { AccessibilityFeatures } from "@/components/AccessibilityFeatures";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-100 font-body">
+      <AccessibilityFeatures />
       <Header />
-      <HeroSlider />
-      <AnnouncementBar />
-      <QuickLinks />
-      <AboutSection />
-      <AcademicPrograms />
-      <FacilitiesSection />
-      <NewsEventsSection />
-      <TestimonialsSection />
-      <PlacementSection />
-      <ContactSection />
-      <MapSection />
+      <main id="main-content">
+        <HeroSlider />
+        <AnnouncementBar />
+        <QuickLinks />
+        <AboutSection />
+        <AcademicPrograms />
+        <FacilitiesSection />
+        <NewsEventsSection />
+        <TestimonialsSection />
+        <PlacementSection />
+        <ContactSection />
+        <MapSection />
+      </main>
       <Footer />
     </div>
   );

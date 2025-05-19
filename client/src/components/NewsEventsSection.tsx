@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
+import { NewsItem } from '@/components/NewsItem';
 
 type NewsItemProps = {
   image: string;
@@ -9,29 +10,6 @@ type NewsItemProps = {
   description: string;
   link: string;
 };
-
-const NewsItem = ({ image, date, category, title, description, link }: NewsItemProps) => (
-  <div className="bg-neutral-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-    <img 
-      src={image} 
-      alt={title} 
-      className="w-full h-48 object-cover"
-    />
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <span className="text-sm text-neutral-500">{date}</span>
-        <span className="bg-primary text-white text-xs px-2 py-1 rounded">{category}</span>
-      </div>
-      <h3 className="font-heading font-bold text-xl mb-2 text-primary">{title}</h3>
-      <p className="text-neutral-600 mb-4">{description}</p>
-      <Link href={link}>
-        <a className="text-secondary hover:text-secondary-dark font-semibold flex items-center">
-          Read More <i className="fas fa-arrow-right ml-2"></i>
-        </a>
-      </Link>
-    </div>
-  </div>
-);
 
 type EventItemProps = {
   image: string;
@@ -216,63 +194,79 @@ export default function NewsEventsSection() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 lg:px-0">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">News & Events</h2>
+        {/* News Marquee */}
+        <NewsMarquee />
+        
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">News & Events</h2>
+            <div className="w-24 h-1 bg-secondary"></div>
+          </div>
           <div className="mt-4 md:mt-0">
             <div className="flex space-x-2">
               <button 
-                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
-                  activeTab === 'news' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
+                  activeTab === 'news' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
                 onClick={() => setActiveTab('news')}
+                aria-pressed={activeTab === 'news'}
               >
-                News
+                <i className="fas fa-newspaper mr-2"></i>News
               </button>
               <button 
-                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
-                  activeTab === 'events' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
+                  activeTab === 'events' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
                 onClick={() => setActiveTab('events')}
+                aria-pressed={activeTab === 'events'}
               >
-                Events
+                <i className="fas fa-calendar-alt mr-2"></i>Events
               </button>
               <button 
-                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors ${
-                  activeTab === 'notices' ? 'bg-primary text-white' : 'bg-neutral-200 text-neutral-700'
+                className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
+                  activeTab === 'notices' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
                 onClick={() => setActiveTab('notices')}
+                aria-pressed={activeTab === 'notices'}
               >
-                Notices
+                <i className="fas fa-bell mr-2"></i>Notices
               </button>
             </div>
           </div>
         </div>
         
         {/* News Tab Content */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'news' ? 'block' : 'hidden'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'news' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="news-tab">
           {newsItems.map((item, index) => (
-            <NewsItem key={index} {...item} />
+            <div className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }} key={index}>
+              <NewsItem {...item} />
+            </div>
           ))}
         </div>
         
         {/* Events Tab Content */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'events' ? 'block' : 'hidden'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'events' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="events-tab">
           {eventItems.map((item, index) => (
-            <EventItem key={index} {...item} />
+            <div className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }} key={index}>
+              <EventItem key={index} {...item} />
+            </div>
           ))}
         </div>
         
         {/* Notices Tab Content */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'notices' ? 'block' : 'hidden'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'notices' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="notices-tab">
           {noticeItems.map((item, index) => (
-            <NoticeItem key={index} {...item} />
+            <div className="animate-fadeIn" style={{ animationDelay: `${index * 0.1}s` }} key={index}>
+              <NoticeItem key={index} {...item} />
+            </div>
           ))}
         </div>
         
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link href={activeTab === 'news' ? '/news' : activeTab === 'events' ? '/events' : '/notices'}>
-            <a className="inline-block bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-md transition duration-300">
+            <a className="btn-primary rounded-lg shadow-md hover-lift group">
               View All {activeTab === 'news' ? 'News' : activeTab === 'events' ? 'Events' : 'Notices'}
+              <i className="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
             </a>
           </Link>
         </div>
