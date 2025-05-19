@@ -63,11 +63,18 @@ export default function Header() {
       <div className="container mx-auto py-4 px-4 lg:px-0">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center">
-            <img 
-              src="/assets/pietlogo.png" 
-              alt="Poornima Institute Logo" 
-              className="h-20 mr-4"
-            />
+            <div className="bg-white p-2 rounded-md shadow-sm border border-neutral-200">
+              <img 
+                src="https://www.poornima.edu.in/wp-content/uploads/2023/01/PIET-Logo.png" 
+                alt="Poornima Institute Logo" 
+                className="h-20 mr-4"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://www.piet.poornima.org/shared/images/PIET_logo.png";
+                }}
+              />
+            </div>
             <div>
               <h1 className="text-primary font-heading font-bold text-2xl md:text-3xl leading-tight">Poornima Institute of</h1>
               <h2 className="text-secondary font-heading font-semibold text-xl md:text-2xl leading-tight">Engineering & Technology</h2>
@@ -78,7 +85,7 @@ export default function Header() {
           <div className="flex mt-4 md:mt-0">
             <Link href="/apply">
               <a className="btn-secondary mr-3 rounded-lg shadow-md hover-lift">
-                Apply Now
+                <i className="fas fa-graduation-cap mr-2"></i> Apply Now
               </a>
             </Link>
             <button 
@@ -98,78 +105,118 @@ export default function Header() {
           <ul className="flex flex-col md:flex-row justify-center">
             <li className="group relative">
               <Link href="/">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Home</a>
+                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                  <i className="fas fa-home mr-2"></i>Home
+                </a>
               </Link>
             </li>
             <li className="group relative">
-              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">About</a>
+              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-university mr-2"></i>About
+              </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
                 <Link href="/about">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">About PIET</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-info-circle mr-2"></i>About PIET
+                  </a>
                 </Link>
                 <Link href="/vision">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Vision & Mission</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-eye mr-2"></i>Vision & Mission
+                  </a>
                 </Link>
                 <Link href="/leadership">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Leadership</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-users mr-2"></i>Leadership
+                  </a>
                 </Link>
                 <Link href="/infrastructure">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Infrastructure</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-building mr-2"></i>Infrastructure
+                  </a>
                 </Link>
               </div>
             </li>
             <li className="group relative">
-              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Academics</a>
+              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-book-open mr-2"></i>Academics
+              </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
                 <Link href="/departments">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Departments</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-sitemap mr-2"></i>Departments
+                  </a>
                 </Link>
                 <Link href="/programs">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Programs Offered</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-graduation-cap mr-2"></i>Programs Offered
+                  </a>
                 </Link>
                 <Link href="/calendar">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Academic Calendar</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-calendar-alt mr-2"></i>Academic Calendar
+                  </a>
                 </Link>
                 <Link href="/examination">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Examination</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-clipboard-check mr-2"></i>Examination
+                  </a>
                 </Link>
               </div>
             </li>
             <li className="group relative">
-              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Admissions</a>
+              <a href="#" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-user-graduate mr-2"></i>Admissions
+              </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
                 <Link href="/admission-process">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Admission Process</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-clipboard-list mr-2"></i>Admission Process
+                  </a>
                 </Link>
                 <Link href="/eligibility">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Eligibility</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-check-circle mr-2"></i>Eligibility
+                  </a>
                 </Link>
                 <Link href="/fee-structure">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Fee Structure</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-rupee-sign mr-2"></i>Fee Structure
+                  </a>
                 </Link>
                 <Link href="/scholarships">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">Scholarships</a>
+                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                    <i className="fas fa-award mr-2"></i>Scholarships
+                  </a>
                 </Link>
               </div>
             </li>
             <li className="group relative">
               <Link href="/research">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Research</a>
+                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                  <i className="fas fa-flask mr-2"></i>Research
+                </a>
               </Link>
             </li>
             <li className="group relative">
               <Link href="/placements">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Placements</a>
+                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                  <i className="fas fa-briefcase mr-2"></i>Placements
+                </a>
               </Link>
             </li>
             <li className="group relative">
               <Link href="/campus-life">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Campus Life</a>
+                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                  <i className="fas fa-coffee mr-2"></i>Campus Life
+                </a>
               </Link>
             </li>
             <li className="group relative">
               <Link href="/contact">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">Contact</a>
+                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                  <i className="fas fa-envelope mr-2"></i>Contact
+                </a>
               </Link>
             </li>
           </ul>
