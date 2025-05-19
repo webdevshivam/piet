@@ -78,15 +78,11 @@ export default function HeroSlider() {
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Link href={slide.cta1Link}>
-                      <a className="btn-secondary rounded-lg shadow-md hover-lift">
-                        {slide.cta1Text}
-                      </a>
+                    <Link href={slide.cta1Link} className="btn-secondary rounded-lg shadow-md hover-lift">
+                      {slide.cta1Text}
                     </Link>
-                    <Link href={slide.cta2Link}>
-                      <a className="btn-outline border-white text-white hover:bg-white hover:text-primary rounded-lg shadow-md">
-                        {slide.cta2Text}
-                      </a>
+                    <Link href={slide.cta2Link} className="btn-outline border-white text-white hover:bg-white hover:text-primary rounded-lg shadow-md">
+                      {slide.cta2Text}
                     </Link>
                   </div>
                 </div>

@@ -159,31 +159,23 @@ export default function Header() {
               </div>
             </li>
             <li className="group relative">
-              <Link href="/research">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
-                  <i className="fas fa-flask mr-2"></i>Research
-                </a>
+              <Link href="/research" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-flask mr-2"></i>Research
               </Link>
             </li>
             <li className="group relative">
-              <Link href="/placements">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
-                  <i className="fas fa-briefcase mr-2"></i>Placements
-                </a>
+              <Link href="/placements" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-briefcase mr-2"></i>Placements
               </Link>
             </li>
             <li className="group relative">
-              <Link href="/campus-life">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
-                  <i className="fas fa-coffee mr-2"></i>Campus Life
-                </a>
+              <Link href="/campus-life" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-coffee mr-2"></i>Campus Life
               </Link>
             </li>
             <li className="group relative">
-              <Link href="/contact">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
-                  <i className="fas fa-envelope mr-2"></i>Contact
-                </a>
+              <Link href="/contact" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-envelope mr-2"></i>Contact
               </Link>
             </li>
           </ul>
