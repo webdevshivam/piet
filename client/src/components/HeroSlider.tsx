@@ -14,7 +14,7 @@ type SlideContent = {
 
 const slides: SlideContent[] = [
   {
-    backgroundImage: 'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1000&q=80',
+    backgroundImage: '/assets/images/peit-bootcamp-jaipur-xlxk2-copy.jpg',
     title: 'Shaping Future Leaders',
     description: 'Poornima Institute of Engineering & Technology offers world-class education to create future innovators and leaders.',
     cta1Text: 'Explore Programs',
@@ -23,7 +23,7 @@ const slides: SlideContent[] = [
     cta2Link: '/virtual-tour'
   },
   {
-    backgroundImage: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1000&q=80',
+    backgroundImage: '/assets/images/c3.png',
     title: 'Excellence in Education',
     description: 'Discover state-of-the-art facilities and advanced curriculum designed for tomorrow\'s professionals.',
     cta1Text: 'Apply Now',
@@ -32,13 +32,13 @@ const slides: SlideContent[] = [
     cta2Link: '/about'
   },
   {
-    backgroundImage: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1000&q=80',
-    title: 'Innovation Through Research',
-    description: 'Our cutting-edge research facilities prepare students to solve real-world engineering challenges.',
-    cta1Text: 'Research Centers',
-    cta1Link: '/research',
-    cta2Text: 'Student Projects',
-    cta2Link: '/projects'
+    backgroundImage: '/assets/images/naaca.png',
+    title: 'NAAC Accredited with Grade A',
+    description: 'We are proud to be recognized for our commitment to quality education and student success.',
+    cta1Text: 'Our Achievements',
+    cta1Link: '/achievements',
+    cta2Text: 'Student Success',
+    cta2Link: '/success-stories'
   }
 ];
 

@@ -65,14 +65,9 @@ export default function Header() {
           <div className="flex items-center">
             <div className="bg-white p-2 rounded-md shadow-sm border border-neutral-200">
               <img 
-                src="https://www.poornima.edu.in/wp-content/uploads/2023/01/PIET-Logo.png" 
+                src="/assets/images/pietlogo.png" 
                 alt="Poornima Institute Logo" 
                 className="h-20 mr-4"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.onerror = null;
-                  target.src = "https://www.piet.poornima.org/shared/images/PIET_logo.png";
-                }}
               />
             </div>
             <div>

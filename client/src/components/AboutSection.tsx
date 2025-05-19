@@ -56,8 +56,8 @@ export default function AboutSection() {
           
           <div className="relative animate-slideInRight">
             <img 
-              src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
-              alt="Poornima Institute Campus" 
+              src="/assets/images/naaca.png" 
+              alt="NAAC Accreditation" 
               className="rounded-xl shadow-xl w-full h-auto z-10 relative"
             />
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary rounded-lg -z-10 opacity-70"></div>
@@ -65,7 +65,7 @@ export default function AboutSection() {
             
             {/* Photo caption */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-primary font-medium">Our beautiful campus at Jaipur, Rajasthan</p>
+              <p className="text-primary font-medium">Accredited with Grade 'A' by NAAC</p>
             </div>
           </div>
         </div>
