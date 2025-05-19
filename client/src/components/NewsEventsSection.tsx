@@ -1,15 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { NewsItem } from '@/components/NewsItem';
-
-type NewsItemProps = {
-  image: string;
-  date: string;
-  category: string;
-  title: string;
-  description: string;
-  link: string;
-};
+import { NewsItem, NewsItemProps } from '@/components/NewsItem';
 
 type EventItemProps = {
   image: string;
