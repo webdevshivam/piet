@@ -47,10 +47,8 @@ export default function AboutSection() {
               ))}
             </div>
             
-            <Link href="/about">
-              <a className="btn-primary rounded-lg shadow-md hover-lift">
-                Discover More About Us <i className="fas fa-arrow-right ml-2"></i>
-              </a>
+            <Link href="/about" className="btn-primary rounded-lg shadow-md hover-lift">
+              Discover More About Us <i className="fas fa-arrow-right ml-2"></i>
             </Link>
           </div>
           

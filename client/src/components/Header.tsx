@@ -78,10 +78,8 @@ export default function Header() {
           </div>
           
           <div className="flex mt-4 md:mt-0">
-            <Link href="/apply">
-              <a className="btn-secondary mr-3 rounded-lg shadow-md hover-lift">
-                <i className="fas fa-graduation-cap mr-2"></i> Apply Now
-              </a>
+            <Link href="/apply" className="btn-secondary mr-3 rounded-lg shadow-md hover-lift">
+              <i className="fas fa-graduation-cap mr-2"></i> Apply Now
             </Link>
             <button 
               className="block md:hidden text-primary focus:outline-none"
@@ -99,10 +97,8 @@ export default function Header() {
         <div className="container mx-auto">
           <ul className="flex flex-col md:flex-row justify-center">
             <li className="group relative">
-              <Link href="/">
-                <a className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
-                  <i className="fas fa-home mr-2"></i>Home
-                </a>
+              <Link href="/" className="block py-4 px-5 text-white hover:bg-primary-light font-medium transition-colors">
+                <i className="fas fa-home mr-2"></i>Home
               </Link>
             </li>
             <li className="group relative">
@@ -110,25 +106,17 @@ export default function Header() {
                 <i className="fas fa-university mr-2"></i>About
               </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
-                <Link href="/about">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-info-circle mr-2"></i>About PIET
-                  </a>
+                <Link href="/about" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-info-circle mr-2"></i>About PIET
                 </Link>
-                <Link href="/vision">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-eye mr-2"></i>Vision & Mission
-                  </a>
+                <Link href="/vision" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-eye mr-2"></i>Vision & Mission
                 </Link>
-                <Link href="/leadership">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-users mr-2"></i>Leadership
-                  </a>
+                <Link href="/leadership" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-users mr-2"></i>Leadership
                 </Link>
-                <Link href="/infrastructure">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-building mr-2"></i>Infrastructure
-                  </a>
+                <Link href="/infrastructure" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-building mr-2"></i>Infrastructure
                 </Link>
               </div>
             </li>
@@ -137,25 +125,17 @@ export default function Header() {
                 <i className="fas fa-book-open mr-2"></i>Academics
               </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
-                <Link href="/departments">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-sitemap mr-2"></i>Departments
-                  </a>
+                <Link href="/departments" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-sitemap mr-2"></i>Departments
                 </Link>
-                <Link href="/programs">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-graduation-cap mr-2"></i>Programs Offered
-                  </a>
+                <Link href="/programs" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-graduation-cap mr-2"></i>Programs Offered
                 </Link>
-                <Link href="/calendar">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-calendar-alt mr-2"></i>Academic Calendar
-                  </a>
+                <Link href="/calendar" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-calendar-alt mr-2"></i>Academic Calendar
                 </Link>
-                <Link href="/examination">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-clipboard-check mr-2"></i>Examination
-                  </a>
+                <Link href="/examination" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-clipboard-check mr-2"></i>Examination
                 </Link>
               </div>
             </li>
@@ -164,25 +144,17 @@ export default function Header() {
                 <i className="fas fa-user-graduate mr-2"></i>Admissions
               </a>
               <div className="absolute hidden group-hover:block bg-white shadow-lg w-56 rounded-md overflow-hidden z-10 transition-all duration-300">
-                <Link href="/admission-process">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-clipboard-list mr-2"></i>Admission Process
-                  </a>
+                <Link href="/admission-process" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-clipboard-list mr-2"></i>Admission Process
                 </Link>
-                <Link href="/eligibility">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-check-circle mr-2"></i>Eligibility
-                  </a>
+                <Link href="/eligibility" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-check-circle mr-2"></i>Eligibility
                 </Link>
-                <Link href="/fee-structure">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-rupee-sign mr-2"></i>Fee Structure
-                  </a>
+                <Link href="/fee-structure" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-rupee-sign mr-2"></i>Fee Structure
                 </Link>
-                <Link href="/scholarships">
-                  <a className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
-                    <i className="fas fa-award mr-2"></i>Scholarships
-                  </a>
+                <Link href="/scholarships" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                  <i className="fas fa-award mr-2"></i>Scholarships
                 </Link>
               </div>
             </li>
