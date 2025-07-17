@@ -1,4 +1,5 @@
 import { Link } from 'wouter';
+import LazyImage from './LazyImage';
 
 type FacilityProps = {
   image: string;
@@ -8,9 +9,11 @@ type FacilityProps = {
 
 const Facility = ({ image, title, description }: FacilityProps) => (
   <div className="bg-white rounded-lg overflow-hidden shadow-md">
-    <img 
-      src={image} 
-      alt={title} 
+
+
+    <LazyImage
+      src={image}
+      alt={title}
       className="w-full h-56 object-cover"
     />
     <div className="p-6">
@@ -63,7 +66,7 @@ export default function FacilitiesSection() {
             Our campus offers state-of-the-art facilities designed to enhance the learning experience and provide students with everything they need to succeed.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {facilities.map((facility, index) => (
             <Facility key={index} {...facility} />

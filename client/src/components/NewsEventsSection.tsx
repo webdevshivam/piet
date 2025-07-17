@@ -13,9 +13,9 @@ type EventItemProps = {
 
 const EventItem = ({ image, date, time, title, location, link }: EventItemProps) => (
   <div className="bg-neutral-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-    <img 
-      src={image} 
-      alt={title} 
+    <img
+      src={image}
+      alt={title}
       className="w-full h-48 object-cover"
     />
     <div className="p-6">
@@ -187,7 +187,7 @@ export default function NewsEventsSection() {
       <div className="container mx-auto px-4 lg:px-0">
         {/* News Marquee */}
         <NewsMarquee />
-        
+
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">News & Events</h2>
@@ -195,7 +195,7 @@ export default function NewsEventsSection() {
           </div>
           <div className="mt-4 md:mt-0">
             <div className="flex space-x-2">
-              <button 
+              <button
                 className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
                   activeTab === 'news' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
@@ -204,7 +204,7 @@ export default function NewsEventsSection() {
               >
                 <i className="fas fa-newspaper mr-2"></i>News
               </button>
-              <button 
+              <button
                 className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
                   activeTab === 'events' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
@@ -213,7 +213,7 @@ export default function NewsEventsSection() {
               >
                 <i className="fas fa-calendar-alt mr-2"></i>Events
               </button>
-              <button 
+              <button
                 className={`px-6 py-2 font-medium rounded-md focus:outline-none transition-colors shadow-sm hover:shadow ${
                   activeTab === 'notices' ? 'bg-primary text-white' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                 }`}
@@ -225,7 +225,7 @@ export default function NewsEventsSection() {
             </div>
           </div>
         </div>
-        
+
         {/* News Tab Content */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'news' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="news-tab">
           {newsItems.map((item, index) => (
@@ -234,7 +234,7 @@ export default function NewsEventsSection() {
             </div>
           ))}
         </div>
-        
+
         {/* Events Tab Content */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'events' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="events-tab">
           {eventItems.map((item, index) => (
@@ -243,7 +243,7 @@ export default function NewsEventsSection() {
             </div>
           ))}
         </div>
-        
+
         {/* Notices Tab Content */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${activeTab === 'notices' ? 'block' : 'hidden'}`} role="tabpanel" aria-labelledby="notices-tab">
           {noticeItems.map((item, index) => (
@@ -252,7 +252,7 @@ export default function NewsEventsSection() {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <Link href={activeTab === 'news' ? '/news' : activeTab === 'events' ? '/events' : '/notices'}>
             <a className="btn-primary rounded-lg shadow-md hover-lift group">
