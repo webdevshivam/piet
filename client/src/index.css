@@ -97,7 +97,7 @@
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    zoom: 0.85; /* Scale everything to 85% for perfect 100% zoom appearance */
+    zoom: 0.9; /* Scale everything to 90% for slightly larger appearance */
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading {
