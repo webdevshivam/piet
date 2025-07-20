@@ -4,6 +4,7 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import QuickLinks from "@/components/QuickLinks";
 import AboutSection from "@/components/AboutSection";
 import WhyChoosePIET from "@/components/WhyChoosePIET";
+import TopRecruitersSection from "@/components/TopRecruitersSection";
 import AcademicPrograms from "@/components/AcademicPrograms";
 import FacilitiesSection from "@/components/FacilitiesSection";
 import NewsEventsSection from "@/components/NewsEventsSection";
@@ -25,6 +26,7 @@ export default function Home() {
         <QuickLinks />
         <AboutSection />
         <WhyChoosePIET />
+        <TopRecruitersSection />
         <AcademicPrograms />
         <FacilitiesSection />
         <NewsEventsSection />
