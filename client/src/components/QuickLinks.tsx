@@ -63,11 +63,47 @@ const NewsMarquee = () => {
     return (
       <div className="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-lg shadow-lg overflow-hidden">
         <div className="flex items-center mb-4">
-          <i className="fas fa-bullhorn text-accent mr-2"></i>
+          <i className="fas fa-bullhorn text-accent mr-3 animate-pulse"></i>
           <h3 className="font-bold text-xl">Latest Updates</h3>
         </div>
-        <div className="flex items-center justify-center h-40">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+        <div className="relative h-48 overflow-hidden">
+          <div className="flex flex-col items-center justify-center h-full space-y-4">
+            {/* Main spinner */}
+            <div className="relative">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-white"></div>
+              <div className="absolute inset-0 animate-ping rounded-full h-12 w-12 border-2 border-white/20"></div>
+            </div>
+            
+            {/* Loading text with typing effect */}
+            <div className="text-center">
+              <p className="text-white/90 text-sm animate-pulse">Fetching latest news...</p>
+              <div className="flex justify-center space-x-1 mt-2">
+                <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              </div>
+            </div>
+            
+            {/* Skeleton loading cards */}
+            <div className="w-full space-y-3 mt-4">
+              {[1, 2].map((item) => (
+                <div key={item} className="bg-white/10 backdrop-blur-sm rounded-md p-4 border border-white/20 animate-pulse">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="h-4 bg-white/20 rounded w-3/4"></div>
+                    <div className="h-6 bg-white/20 rounded w-16"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 bg-white/20 rounded w-full"></div>
+                    <div className="h-3 bg-white/20 rounded w-5/6"></div>
+                  </div>
+                  <div className="flex justify-between items-center mt-3">
+                    <div className="h-3 bg-white/20 rounded w-24"></div>
+                    <div className="h-3 bg-white/20 rounded w-20"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
