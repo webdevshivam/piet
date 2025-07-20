@@ -90,13 +90,14 @@
   }
 
   html {
-    font-size: clamp(14px, 1vw, 16px);
+    font-size: 13px; /* Base size equivalent to 80% of 16px */
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
+    zoom: 0.85; /* Scale everything to 85% for perfect 100% zoom appearance */
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading {
@@ -104,12 +105,12 @@
     line-height: 1.2;
   }
   
-  h1 { font-size: clamp(1.75rem, 4vw, 3rem); }
-  h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
-  h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
-  h4 { font-size: clamp(1.125rem, 2.5vw, 1.75rem); }
-  h5 { font-size: clamp(1rem, 2vw, 1.5rem); }
-  h6 { font-size: clamp(0.875rem, 1.5vw, 1.25rem); }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.4rem; }
+  h5 { font-size: 1.2rem; }
+  h6 { font-size: 1rem; }
   
   /* Modern hover effects */
   .hover-lift {
@@ -127,20 +128,20 @@
   /* Button styles */
   .btn-primary {
     @apply bg-primary hover:bg-primary-light text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
-    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
-    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
   
   .btn-secondary {
     @apply bg-secondary hover:bg-secondary-light text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
-    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
-    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
   
   .btn-outline {
     @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
-    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
-    font-size: clamp(0.875rem, 2vw, 1rem);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
   
   /* Card styles */
@@ -150,15 +151,26 @@
   
   /* Section styles */
   .section-padding {
-    padding-top: clamp(2rem, 8vw, 6rem);
-    padding-bottom: clamp(2rem, 8vw, 6rem);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
   
   /* Container styles */
   .container {
-    max-width: min(1200px, 95vw);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(1rem, 4vw, 2rem);
+    padding: 0 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .section-padding {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    
+    .container {
+      padding: 0 1rem;
+    }
   }
   
   /* Gradient backgrounds */

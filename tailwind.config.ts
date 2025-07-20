@@ -11,11 +11,11 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       spacing: {
-        'fluid-xs': 'clamp(0.5rem, 2vw, 1rem)',
-        'fluid-sm': 'clamp(1rem, 3vw, 1.5rem)',
-        'fluid-md': 'clamp(1.5rem, 4vw, 2rem)',
-        'fluid-lg': 'clamp(2rem, 6vw, 3rem)',
-        'fluid-xl': 'clamp(3rem, 8vw, 4rem)',
+        'xs': '0.5rem',
+        'sm': '1rem', 
+        'md': '1.5rem',
+        'lg': '2rem',
+        'xl': '3rem',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
