@@ -55,7 +55,7 @@ app.use((req, res, next) => {
   }
 
 
- server.listen(5000,'localhost',()=>{
-  console.log("server is running on localhost:5000");
+ server.listen(5000,'0.0.0.0',()=>{
+  console.log("server is running on 0.0.0.0:5000");
  })
 })();
