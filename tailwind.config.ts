@@ -10,6 +10,13 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        'fluid-xs': 'clamp(0.5rem, 2vw, 1rem)',
+        'fluid-sm': 'clamp(1rem, 3vw, 1.5rem)',
+        'fluid-md': 'clamp(1.5rem, 4vw, 2rem)',
+        'fluid-lg': 'clamp(2rem, 6vw, 3rem)',
+        'fluid-xl': 'clamp(3rem, 8vw, 4rem)',
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         heading: ['Montserrat', 'sans-serif'],

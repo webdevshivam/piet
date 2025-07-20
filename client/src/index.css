@@ -89,14 +89,27 @@
     @apply border-border;
   }
 
+  html {
+    font-size: clamp(14px, 1vw, 16px);
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6, .font-heading {
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
   }
+  
+  h1 { font-size: clamp(1.75rem, 4vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+  h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+  h4 { font-size: clamp(1.125rem, 2.5vw, 1.75rem); }
+  h5 { font-size: clamp(1rem, 2vw, 1.5rem); }
+  h6 { font-size: clamp(0.875rem, 1.5vw, 1.25rem); }
   
   /* Modern hover effects */
   .hover-lift {
@@ -113,15 +126,21 @@
   
   /* Button styles */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-md transition duration-300 inline-flex items-center justify-center;
+    @apply bg-primary hover:bg-primary-light text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
   }
   
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-light text-white font-semibold px-6 py-3 rounded-md transition duration-300 inline-flex items-center justify-center;
+    @apply bg-secondary hover:bg-secondary-light text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
   }
   
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-md transition duration-300 inline-flex items-center justify-center;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-md transition duration-300 inline-flex items-center justify-center;
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
   }
   
   /* Card styles */
@@ -131,7 +150,15 @@
   
   /* Section styles */
   .section-padding {
-    @apply py-16 md:py-24;
+    padding-top: clamp(2rem, 8vw, 6rem);
+    padding-bottom: clamp(2rem, 8vw, 6rem);
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: min(1200px, 95vw);
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
   }
   
   /* Gradient backgrounds */

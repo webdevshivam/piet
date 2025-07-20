@@ -37,10 +37,10 @@ const OverviewSection: React.FC<OverviewSectionProps> = ({
                     )}
                 >
                     <div className="mb-8">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6 leading-tight">
+                        <h2 className="font-heading font-bold text-primary mb-6 leading-tight" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
                             {title}
                         </h2>
-                        {subtitle && <div className="w-24 h-1 bg-secondary mb-6"></div>}
+                        {subtitle && <div className="bg-secondary mb-6" style={{ width: 'clamp(4rem, 8vw, 6rem)', height: '4px' }}></div>}
                     </div>
                     <div className="flex flex-col items-stretch">{children}</div>
                 </div>
