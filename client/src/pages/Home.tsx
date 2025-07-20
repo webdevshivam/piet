@@ -3,6 +3,7 @@ import HeroSlider from "@/components/HeroSlider";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import QuickLinks from "@/components/QuickLinks";
 import AboutSection from "@/components/AboutSection";
+import WhyChoosePIET from "@/components/WhyChoosePIET";
 import AcademicPrograms from "@/components/AcademicPrograms";
 import FacilitiesSection from "@/components/FacilitiesSection";
 import NewsEventsSection from "@/components/NewsEventsSection";
@@ -23,6 +24,7 @@ export default function Home() {
         <AnnouncementBar />
         <QuickLinks />
         <AboutSection />
+        <WhyChoosePIET />
         <AcademicPrograms />
         <FacilitiesSection />
         <NewsEventsSection />
