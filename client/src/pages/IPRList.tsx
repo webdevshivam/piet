@@ -1,9 +1,12 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Cta from '@/components/Cta';
 import BreadCrumb from '@/components/BreadCrumb';
-import { AccessibilityFeatures } from '@/components/AccessibilityFeatures'
+import { AccessibilityFeatures } from '@/components/AccessibilityFeatures';
+import { ChevronDown, ChevronRight, Download, FileText, Calendar, Award, Users, Lightbulb } from 'lucide-react';
+
 const iprData = {
     2025: [
         { sno: 1, grantNo: '202511003955', author: 'Mr. Indra Kishor', affiliation: 'PIET, Jaipur', title: 'REVOLUTIONIZING TRAIN HOSPITALITY WITH INTELLIGENT PNR INTEGRATION AND REAL-TIME TRACKING' },
@@ -51,63 +54,189 @@ const iprData = {
     ],
 };
 
-const IPRAccordion = ({ year, data }) => {
+const IPRAccordion = ({ year, data }: { year: string; data: any[] }) => {
     const [isOpen, setIsOpen] = useState(false);
+    
     return (
-        <div className="border rounded mb-2">
-            <div className="cursor-pointer bg-gray-200 px-4 py-2 flex justify-between items-center" onClick={() => setIsOpen(!isOpen)}>
-                <span className="font-semibold">{year}</span>
-                <span>{isOpen ? '▲' : '▼'}</span>
+        <div className="bg-white shadow-lg rounded-xl border border-gray-100 mb-6 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div 
+                className="cursor-pointer bg-gradient-to-r from-primary to-secondary text-white px-6 py-4 flex justify-between items-center hover:from-secondary hover:to-primary transition-all duration-300" 
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <div className="flex items-center gap-3">
+                    <Calendar className="h-5 w-5" />
+                    <span className="font-bold text-lg">Patents Filed in {year}</span>
+                    <span className="bg-white text-primary px-3 py-1 rounded-full text-sm font-semibold">
+                        {data.length} Patents
+                    </span>
+                </div>
+                <div className="flex items-center gap-2">
+                    {isOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+                </div>
             </div>
             {isOpen && (
-                <table className="w-full text-sm text-left text-gray-600">
-                    <thead className="text-xs uppercase bg-gray-100 text-gray-700">
-                        <tr>
-                            <th className="px-4 py-2">S. No</th>
-                            <th className="px-4 py-2">Grant No.</th>
-                            <th className="px-4 py-2">Author</th>
-                            <th className="px-4 py-2">Affiliation</th>
-                            <th className="px-4 py-2">Title</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item, idx) => (
-                            <tr key={idx} className="border-b">
-                                <td className="px-4 py-2">{item.sno}</td>
-                                <td className="px-4 py-2">{item.grantNo}</td>
-                                <td className="px-4 py-2">{item.author}</td>
-                                <td className="px-4 py-2">{item.affiliation}</td>
-                                <td className="px-4 py-2">{item.title}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <div className="p-6 bg-gray-50">
+                    <div className="overflow-x-auto">
+                        <table className="w-full bg-white rounded-lg overflow-hidden shadow-sm">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">S. No</th>
+                                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Grant No.</th>
+                                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Author</th>
+                                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Affiliation</th>
+                                    <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Title</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-200">
+                                {data.map((item, idx) => (
+                                    <tr key={idx} className="hover:bg-blue-50 transition-colors duration-200">
+                                        <td className="px-4 py-3 text-sm font-medium text-gray-900">{item.sno}</td>
+                                        <td className="px-4 py-3 text-sm text-primary font-semibold">{item.grantNo}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700">{item.author}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700">{item.affiliation}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-900 font-medium leading-relaxed">{item.title}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             )}
         </div>
     );
 };
 
+const StatsCard = ({ icon, title, value, color }: { icon: React.ReactNode; title: string; value: string; color: string }) => (
+    <div className={`${color} text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+        <div className="flex items-center justify-between">
+            <div>
+                <p className="text-white/80 text-sm font-medium">{title}</p>
+                <p className="text-2xl font-bold mt-1">{value}</p>
+            </div>
+            <div className="text-white/80">
+                {icon}
+            </div>
+        </div>
+    </div>
+);
+
 const IPRList = () => {
+    const totalPatents = Object.values(iprData).reduce((sum, yearData) => sum + yearData.length, 0);
+    const years = Object.keys(iprData).length;
+    const latestYear = Math.max(...Object.keys(iprData).map(Number));
+
     return (
         <div>
             <AccessibilityFeatures />
             <Header />
             <BreadCrumb
-                title="List of IPR"
-                description="Explore year-wise granted Intellectual Property Rights filed by faculty and staff of PIET."
+                title="Intellectual Property Rights (IPR)"
+                description="Explore our comprehensive collection of patents and intellectual property rights filed by PIET faculty and researchers."
                 breadcrumbs={[
                     { label: 'Home', href: '/' },
-                    { label: 'List of IPR', isCurrent: true },
+                    { label: 'Research', href: '/research' },
+                    { label: 'IPR List', isCurrent: true },
                 ]}
             />
 
-            <div className="container mx-auto my-10">
-                <h2 className="text-3xl text-primary font-bold mb-6 text-center">List of IPR</h2>
-                <div className="w-24 h-1 bg-secondary mb-6 mx-auto"></div>
-                {Object.keys(iprData).sort((a, b) => b - a).map((year) => (
-                    <IPRAccordion key={year} year={year} data={iprData[year]} />
-                ))}
-            </div>
+            {/* Hero Section */}
+            <section className="py-16 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="text-center text-white">
+                        <div className="flex justify-center mb-6">
+                            <div className="p-4 bg-white/20 rounded-full backdrop-blur-sm">
+                                <Lightbulb className="h-12 w-12 text-white" />
+                            </div>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                            Innovation & Patents
+                        </h1>
+                        <p className="text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
+                            Discover the groundbreaking research and innovative solutions developed by our faculty and students. 
+                            From AI-powered systems to IoT innovations, explore our intellectual property portfolio.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <StatsCard
+                            icon={<FileText className="h-8 w-8" />}
+                            title="Total Patents Filed"
+                            value={totalPatents.toString()}
+                            color="bg-gradient-to-r from-blue-600 to-blue-700"
+                        />
+                        <StatsCard
+                            icon={<Calendar className="h-8 w-8" />}
+                            title="Years of Innovation"
+                            value={years.toString()}
+                            color="bg-gradient-to-r from-green-600 to-green-700"
+                        />
+                        <StatsCard
+                            icon={<Award className="h-8 w-8" />}
+                            title="Latest Patents"
+                            value={iprData[latestYear]?.length.toString() || '0'}
+                            color="bg-gradient-to-r from-purple-600 to-purple-700"
+                        />
+                        <StatsCard
+                            icon={<Users className="h-8 w-8" />}
+                            title="Active Researchers"
+                            value="25+"
+                            color="bg-gradient-to-r from-orange-600 to-red-600"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Main Content */}
+            <section className="py-16">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Patent Portfolio by Year
+                        </h2>
+                        <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                            Browse through our year-wise collection of patents, showcasing continuous innovation 
+                            and research excellence across various technological domains.
+                        </p>
+                    </div>
+
+                    <div className="max-w-6xl mx-auto">
+                        {Object.keys(iprData).sort((a, b) => b.localeCompare(a)).map((year) => (
+                            <IPRAccordion key={year} year={year} data={iprData[year as keyof typeof iprData]} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Research Areas Section */}
+            <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-primary mb-4">Key Research Areas</h2>
+                        <div className="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            { title: 'Artificial Intelligence', count: '15+', icon: '🤖' },
+                            { title: 'Internet of Things', count: '12+', icon: '🌐' },
+                            { title: 'Robotics & Automation', count: '8+', icon: '🦾' },
+                            { title: 'Healthcare Technology', count: '6+', icon: '🏥' }
+                        ].map((area, index) => (
+                            <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-100">
+                                <div className="text-4xl mb-4">{area.icon}</div>
+                                <h3 className="font-bold text-primary mb-2">{area.title}</h3>
+                                <p className="text-gray-600">{area.count} Patents</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             <Cta />
             <Footer />
