@@ -586,7 +586,7 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/hostel-facilties"
+                  href="/hostel-life"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-bed mr-2"></i>Hostel Life

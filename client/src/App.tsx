@@ -65,6 +65,7 @@ import ELibrary from "./pages/ELibrary";
 import OBE from "./pages/OBE";
 import EventPage from "./pages/IPR-active";
 import IQACPage from "./pages/IQAC";
+import HostelLife from "./pages/HostelLife";
 
 function Router() {
   return (
@@ -130,6 +131,7 @@ function Router() {
         <Route path="/literacy-form" component={LiteracyForm} />
         <Route path="/iqac" component={IQACPage} />
         <Route path="/ipr-active" component={EventPage} />
+        <Route path="/hostel-life" component={HostelLife} />
           <Route path="/:rest*" component={NotFound} />
 
     </Switch>
