@@ -16,8 +16,11 @@ import { Label } from './ui/label';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { useToast } from '../hooks/use-toast';
 
 const AlumniRegistration = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     photo: null,
     name: '',
@@ -47,11 +50,100 @@ const AlumniRegistration = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const uploadPhoto = async (file) => {
+    if (!file) return null;
+    
+    const formData = new FormData();
+    formData.append('photo', file);
+    
+    try {
+      const response = await fetch('https://piet-admin-1.onrender.com/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        return data.url;
+      }
+    } catch (error) {
+      console.error('Photo upload failed:', error);
+    }
+    return null;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    alert('Registration submitted successfully!');
+    setIsSubmitting(true);
+
+    try {
+      // Upload photo first if exists
+      let photoUrl = null;
+      if (formData.photo) {
+        photoUrl = await uploadPhoto(formData.photo);
+      }
+
+      // Prepare data according to schema
+      const alumniData = {
+        name: formData.name,
+        batch: formData.batch,
+        fromCity: formData.fromCity,
+        currentCity: formData.currentCity,
+        companyName: formData.companyName,
+        position: formData.position,
+        email: formData.email,
+        phone: formData.phone,
+        achievements: formData.achievements || undefined,
+        photoUrl: photoUrl || undefined,
+      };
+
+      const response = await fetch('https://piet-admin-1.onrender.com/api/alumni', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(alumniData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        toast({
+          title: "Success!",
+          description: "Alumni registration submitted successfully!",
+        });
+        
+        // Reset form
+        setFormData({
+          photo: null,
+          name: '',
+          batch: '',
+          fromCity: '',
+          currentCity: '',
+          companyName: '',
+          position: '',
+          email: '',
+          phone: '',
+          achievements: ''
+        });
+        
+        // Reset file input
+        const fileInput = document.getElementById('photo') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
+        
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to submit registration. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -324,9 +416,18 @@ const AlumniRegistration = () => {
 
               {/* Submit Button */}
               <div className="flex justify-center pt-6">
-                <Button type="submit" className="px-8 py-3 text-lg">
-                  <i className="fas fa-user-plus mr-2"></i>
-                  Register as Alumni
+                <Button type="submit" disabled={isSubmitting} className="px-8 py-3 text-lg">
+                  {isSubmitting ? (
+                    <>
+                      <i className="fas fa-spinner fa-spin mr-2"></i>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-user-plus mr-2"></i>
+                      Register as Alumni
+                    </>
+                  )}
                 </Button>
               </div>
             </form>
