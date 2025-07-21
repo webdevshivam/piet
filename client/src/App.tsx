@@ -53,6 +53,9 @@ import LiteracyForum from "./pages/LiteracyForum";
 import AcmChapter from "./pages/AcmChapter";
 import AnnualEventsPage from './pages/AnnualEvents'
 import GoverningCouncil from "./pages/GoverningCouncil";
+import LiteracyForm from "./pages/LiteracyForm";
+import NbaPage from "./pages/Nba";
+import OBEPage from "./pages/OBE";
 import NEPPage from "./pages/NEPPage";
 import NaacFirstCycle from "./pages/Naac";
 import NirfPage from "./pages/Nirf";
@@ -123,6 +126,9 @@ function Router() {
       <Route path="/qiv-ranking" component={QivRankingPage} />
       <Route path="/times-ranking" component={TimesRankingPage} />
           <Route path="/e-library" component={ELibrary} />
+      <Route path="/nba" component={NbaPage} />
+      <Route path="/obe" component={OBEPage} />
+      <Route path="/literacy-form" component={LiteracyForm} />
           <Route path="/iqac" component={IQACPage} />
           <Route path="/:rest*" component={NotFound} />
 
