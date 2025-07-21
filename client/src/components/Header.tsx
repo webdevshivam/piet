@@ -322,8 +322,18 @@ export default function Header() {
                   <i className="fas fa-users-cog mr-2"></i>Council
                 </Link>
 
-                <Link href="/complaints" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
+                <Link
+                  href="/complaints"
+                  className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
+                >
                   <i className="fas fa-exclamation-triangle mr-2"></i>Complaints
+                </Link>
+
+                <Link
+                  href="/complaints-registration"
+                  className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
+                >
+                  <i className="fas fa-edit mr-2"></i>Submit Complaint
                 </Link>
 
                 <Link href="/management" className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors">
@@ -608,6 +618,13 @@ export default function Header() {
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-balance-scale mr-2"></i>Complaints
+                </Link>
+
+                <Link
+                  href="/complaints-registration"
+                  className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
+                >
+                  <i className="fas fa-edit mr-2"></i>Submit Complaint
                 </Link>
 
                 <Link

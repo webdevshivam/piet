@@ -24,6 +24,7 @@ import Registrar from "./pages/Registrar";
 import CoE from "./pages/CoE";
 import Council from "./pages/Council";
 import Complaints from "./pages/Complaints";
+import ComplaintsRegistration from "./components/ComplaintsRegistration";
 import Team from "./pages/Team";
 import Cells from "./pages/Cells";
 import Organogram from "./pages/Organogram";
@@ -85,6 +86,7 @@ function Router() {
       <Route path="/coe-message" component={CoE} />
       <Route path="/governing-council" component={GoverningCouncil} />
       <Route path="/complaints" component={Complaints} />
+      <Route path="/complaints-registration" component={ComplaintsRegistration} />
       <Route path="/team-management" component={Team} />
       <Route path="/cells-committees" component={Cells} />
       <Route path="/organogram" component={Organogram} />
