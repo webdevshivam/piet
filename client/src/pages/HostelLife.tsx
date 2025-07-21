@@ -366,7 +366,7 @@ const HostelLife = () => {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {hostelAdvantages.map((advantage, index) => (
-                            <div key={index} className="bg-gradient-to-br from-primary to-secondary text-white rounded-lg p-4 hover:shadow-lg transition-all duration-300">
+                            <div key={index} className="bg-primary text-white rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-start">
                                     <i className="fas fa-medal text-yellow-300 mr-3 mt-1"></i>
                                     <span className="font-medium">{advantage}</span>
