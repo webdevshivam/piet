@@ -120,15 +120,16 @@ function Router() {
       <Route path="/annual-events" component={AnnualEventsPage} />
       <Route path="/governing-concil" component={GoverningCouncil} />
       <Route path="/nep" component={NEPPage} />
-      <Route path="/naac" component={NaacFirstCycle} />
-      <Route path="/nirf" component={NirfPage} />
-      <Route path="/qiv-ranking" component={QivRankingPage} />
-      <Route path="/times-ranking" component={TimesRankingPage} />
-          <Route path="/e-library" component={ELibrary} />
-      <Route path="/nba" component={NbaPage} />
-      <Route path="/obe" component={OBEPage} />
-      <Route path="/literacy-form" component={LiteracyForm} />
-          <Route path="/iqac" component={IQACPage} />
+        <Route path="/naac" component={NaacFirstCycle} />
+        <Route path="/nirf" component={NirfPage} />
+        <Route path="/qiv-ranking" component={QivRankingPage} />
+        <Route path="/times-ranking" component={TimesRankingPage} />
+        <Route path="/e-library" component={ELibrary} />
+        <Route path="/nba" component={NbaPage} />
+        <Route path="/obe" component={OBE} />
+        <Route path="/literacy-form" component={LiteracyForm} />
+        <Route path="/iqac" component={IQACPage} />
+        <Route path="/ipr-active" component={EventPage} />
           <Route path="/:rest*" component={NotFound} />
 
     </Switch>
