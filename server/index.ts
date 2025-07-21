@@ -59,9 +59,3 @@ app.use((req, res, next) => {
   console.log("server is running on 0.0.0.0:5000");
  })
 })();
-app.use('/api', router);
-
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
