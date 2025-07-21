@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import AccessibilityFeatures from '../components/AccessibilityFeatures';
+import { AccessibilityFeatures } from '../components/AccessibilityFeatures';
 import Header from '../components/Header';
 import BreadCrumb from '../components/BreadCrumb';
 import TopRecruitersSection from '../components/TopRecruitersSection';
