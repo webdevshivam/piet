@@ -462,7 +462,7 @@ const IQACPage = () => {
                                                                 <FileText className="h-4 w-4 text-blue-500" />
                                                                 <span className="text-gray-700 font-medium">{doc}</span>
                                                             </div>
-                                                            <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                                                            <button className="flex items-center gap-2 bg-primary text-white px-3 py-1 rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg text-sm">
                                                                 <Download className="h-3 w-3" />
                                                                 Download
                                                             </button>
@@ -624,11 +624,11 @@ const IQACPage = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex gap-3">
-                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                    <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg">
                                                         <Download className="h-4 w-4" />
                                                         Download PDF
                                                     </button>
-                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-pink-600 hover:to-pink-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                    <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg">
                                                         <Eye className="h-4 w-4" />
                                                         Preview
                                                     </button>
@@ -678,7 +678,7 @@ const IQACPage = () => {
                                 </div>
                             </div>
                             <div className="col-span-3 flex justify-center">
-                               <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+                               <button className="flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
                                     <Download className="h-4 w-4" />
                                     Download
                                 </button>
@@ -730,7 +730,7 @@ const IQACPage = () => {
                                             <FileText className="h-4 w-4 text-purple-500" />
                                             <span className="text-gray-700 font-medium">{item}</span>
                                         </div>
-                                        <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-200 shadow-md hover:shadow-lg">
+                                        <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg">
                                             <Download className="h-4 w-4" />
                                             Download
                                         </button>
