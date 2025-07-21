@@ -116,6 +116,7 @@ function Router() {
       <Route path="/qiv-ranking" component={QivRankingPage} />
       <Route path="/times-ranking" component={TimesRankingPage} />
           <Route path="/e-library" component={ELibrary} />
+          <Route path="/iqac" component={IQACPage} />
           <Route path="/:rest*" component={NotFound} />
 
     </Switch>
