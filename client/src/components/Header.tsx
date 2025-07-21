@@ -108,6 +108,12 @@ export default function Header() {
             >
               NBA
             </Link>
+            <Link
+              to="/iqac"
+              className="text-sm hover:text-accent-light transition-colors"
+            >
+              IQAC
+            </Link>
             <div className="flex space-x-3 ml-4">
               <a
                 href="https://facebook.com"
