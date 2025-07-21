@@ -372,7 +372,7 @@ const AnnualEvents = () => {
                   transition={{ duration: 0.6, delay: item.delay }}
                   className="group text-center p-8 rounded-2xl hover:bg-gradient-to-br hover:from-primary/10 hover:to-primary-light/10 transition-all duration-300"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-r from-primary to-primary-light text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"></div>
+                  <div className="w-20 h-20 bg-gradient-to-r from-primary to-primary-light text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <i className={`${item.icon} text-3xl`}></i>
                   </div>
                   <h3 className="text-2xl font-bold text-primary mb-4 uppercase tracking-wide">{item.title}</h3>
