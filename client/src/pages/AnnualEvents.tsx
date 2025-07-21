@@ -30,7 +30,7 @@ const EventCard = ({ title, description, image, highlights, when, venue, categor
   >
     {featured && (
       <div className="absolute top-4 right-4 z-10">
-        <span className="bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+        <span className="bg-gradient-to-r from-primary to-primary-light text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
           Featured
         </span>
       </div>
@@ -78,7 +78,7 @@ const EventCard = ({ title, description, image, highlights, when, venue, categor
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className="flex items-start group/item"
             >
-              <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mt-2 mr-3 flex-shrink-0 group-hover/item:scale-125 transition-transform"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-primary to-primary-light rounded-full mt-2 mr-3 flex-shrink-0 group-hover/item:scale-125 transition-transform"></div>
               <span className="text-sm text-gray-600 group-hover/item:text-gray-800 transition-colors">{highlight}</span>
             </motion.div>
           ))}
@@ -93,7 +93,7 @@ const EventCard = ({ title, description, image, highlights, when, venue, categor
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition-all duration-300"
+          className="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition-all duration-300"
         >
           Learn More
         </motion.button>
@@ -223,10 +223,10 @@ const AnnualEvents = () => {
   ];
 
   const stats = [
-    { icon: "fas fa-calendar-check", number: "6+", label: "Annual Events", gradient: "bg-gradient-to-br from-blue-500 to-blue-700" },
-    { icon: "fas fa-users", number: "3000+", label: "Participants", gradient: "bg-gradient-to-br from-green-500 to-green-700" },
-    { icon: "fas fa-trophy", number: "75+", label: "Competitions", gradient: "bg-gradient-to-br from-purple-500 to-purple-700" },
-    { icon: "fas fa-heart", number: "100%", label: "Memorable Moments", gradient: "bg-gradient-to-br from-pink-500 to-pink-700" }
+    { icon: "fas fa-calendar-check", number: "6+", label: "Annual Events", gradient: "bg-gradient-to-br from-primary to-primary-dark" },
+    { icon: "fas fa-users", number: "3000+", label: "Participants", gradient: "bg-gradient-to-br from-primary to-primary-dark" },
+    { icon: "fas fa-trophy", number: "75+", label: "Competitions", gradient: "bg-gradient-to-br from-primary to-primary-dark" },
+    { icon: "fas fa-heart", number: "100%", label: "Memorable Moments", gradient: "bg-gradient-to-br from-primary to-primary-dark" }
   ];
 
   return (
@@ -245,10 +245,10 @@ const AnnualEvents = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-primary via-secondary to-primary text-white overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-r from-primary via-primary-light to-primary text-white overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary-light/80"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -314,7 +314,7 @@ const AnnualEvents = () => {
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-6 uppercase tracking-tight">
               OUR SIGNATURE EVENTS
             </h2>
-            <div className="w-32 h-2 bg-gradient-to-r from-primary to-secondary mx-auto mb-8 rounded-full"></div>
+            <div className="w-32 h-2 bg-gradient-to-r from-primary to-primary-light mx-auto mb-8 rounded-full"></div>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Experience the vibrant campus life through our carefully curated annual events that bring together 
               students, faculty, and the wider community in celebration of learning, culture, and achievement.
@@ -339,7 +339,7 @@ const AnnualEvents = () => {
 
       {/* Participation Section */}
       <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary-light/5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -351,7 +351,7 @@ const AnnualEvents = () => {
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8 uppercase tracking-tight">
               JOIN THE CELEBRATION
             </h2>
-            <div className="w-32 h-2 bg-gradient-to-r from-primary to-secondary mx-auto mb-10 rounded-full"></div>
+            <div className="w-32 h-2 bg-gradient-to-r from-primary to-primary-light mx-auto mb-10 rounded-full"></div>
             <p className="text-lg text-gray-600 mb-12 leading-relaxed">
               Our annual events are more than just celebrations – they're opportunities for personal growth, 
               skill development, and building lifelong friendships. Whether you're interested in technology, 
@@ -370,9 +370,9 @@ const AnnualEvents = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: item.delay }}
-                  className="group text-center p-8 rounded-2xl hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 transition-all duration-300"
+                  className="group text-center p-8 rounded-2xl hover:bg-gradient-to-br hover:from-primary/10 hover:to-primary-light/10 transition-all duration-300"
                 >
-                  <div className="w-20 h-20 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-20 h-20 bg-gradient-to-r from-primary to-primary-light text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg"></div>
                     <i className={`${item.icon} text-3xl`}></i>
                   </div>
                   <h3 className="text-2xl font-bold text-primary mb-4 uppercase tracking-wide">{item.title}</h3>
