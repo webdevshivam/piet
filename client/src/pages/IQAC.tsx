@@ -398,7 +398,7 @@ const IQACPage = () => {
                 <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
                     <Icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
@@ -488,7 +488,7 @@ const IQACPage = () => {
                 <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
                     <Icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
@@ -560,7 +560,7 @@ const IQACPage = () => {
                 <div className="p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl">
                     <Icon className="h-6 w-6 text-purple-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
@@ -651,7 +651,7 @@ const IQACPage = () => {
                 <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
                     <Icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
@@ -673,9 +673,7 @@ const IQACPage = () => {
                             </div>
                             <div className="col-span-8 flex items-center">
                                 <div className="flex items-center gap-3">
-                                    <FileText className="h-5 wAnalysis: The code needs to have its gradient colors updated to match the website's theme by replacing the old gradient classes with `from-primary` and `to-secondary`.
-
-w-5 text-blue-500 group-hover:text-blue-600" />
+                                    <FileText className="h-5 w-5 text-blue-500 group-hover:text-blue-600" />
                                     <span className="font-medium text-gray-800 group-hover:text-gray-900">{item}</span>
                                 </div>
                             </div>
@@ -698,7 +696,7 @@ w-5 text-blue-500 group-hover:text-blue-600" />
                 <div className="p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl">
                     <Icon className="h-6 w-6 text-purple-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
