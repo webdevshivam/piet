@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BreadCrumb from '@/components/BreadCrumb';
 import Cta from '@/components/Cta';
+import { ChevronDown, ChevronRight, Download, Eye, Users, Target, Award, BookOpen, FileText, Calendar, CheckCircle } from 'lucide-react';
 
 const iqacConstitution = [
     'Constitution 2024-25 (After Visit)',
@@ -247,41 +247,85 @@ const IQACPage = () => {
     const [openEnvCertYear, setOpenEnvCertYear] = useState(null);
     const [openEnvReportYear, setOpenEnvReportYear] = useState(null);
 
-    const DoubleDropdown = ({ title, data, openYear, setOpenYear, openItem, setOpenItem }) => (
-        <div className="mb-10">
-            <h2 className="text-2xl font-bold text-primary mb-4">{title}</h2>
-            <div className="space-y-4">
+    const ModernDoubleDropdown = ({ title, data, openYear, setOpenYear, openItem, setOpenItem, icon: Icon }) => (
+        <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-blue-600" />
+                </div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    {title}
+                </h2>
+            </div>
+            <div className="grid gap-4">
                 {Object.entries(data).map(([year, items]) => (
-                    <div key={year} className="border rounded-xl shadow-md">
+                    <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <button
-                            className="w-full text-left px-6 py-4 font-semibold text-secondary hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 focus:outline-none flex justify-between items-center transition-all duration-300"
                             onClick={() => {
                                 setOpenYear(openYear === year ? null : year);
                                 setOpenItem(null);
                             }}
                         >
-                            <span>{year}</span>
-                            <span className="text-xl">{openYear === year ? '▼' : '►'}</span>
+                            <div className="flex items-center gap-3">
+                                <Calendar className="h-5 w-5 text-blue-500" />
+                                <span className="text-lg">{year}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+                                    {items.length} items
+                                </span>
+                                {openYear === year ? (
+                                    <ChevronDown className="h-5 w-5 text-blue-600 transition-transform duration-200" />
+                                ) : (
+                                    <ChevronRight className="h-5 w-5 text-blue-600 transition-transform duration-200" />
+                                )}
+                            </div>
                         </button>
                         {openYear === year && (
-                            <div className="px-6 pb-4 space-y-2">
+                            <div className="px-8 pb-6 bg-gradient-to-br from-gray-50 to-blue-50 space-y-3">
                                 {items.map((item, idx) => (
-                                    <div key={idx} className="border-l-4 border-secondary pl-4">
+                                    <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
                                         <button
-                                            className="w-full text-left py-2 text-gray-700 hover:text-secondary focus:outline-none flex justify-between items-center"
+                                            className="w-full text-left p-4 text-gray-700 hover:bg-blue-50 focus:outline-none flex justify-between items-center group"
                                             onClick={() => setOpenItem(openItem === `${year}-${idx}` ? null : `${year}-${idx}`)}
                                         >
-                                            <span>{item}</span>
-                                            <span className="text-sm">{openItem === `${year}-${idx}` ? '▼' : '►'}</span>
+                                            <div className="flex items-center gap-3">
+                                                <FileText className="h-4 w-4 text-blue-500 group-hover:text-blue-600" />
+                                                <span className="font-medium">{item}</span>
+                                            </div>
+                                            {openItem === `${year}-${idx}` ? (
+                                                <ChevronDown className="h-4 w-4 text-blue-500" />
+                                            ) : (
+                                                <ChevronRight className="h-4 w-4 text-blue-500" />
+                                            )}
                                         </button>
                                         {openItem === `${year}-${idx}` && (
-                                            <div className="mt-2 p-3 bg-gray-50 rounded-lg">
-                                                <p className="text-sm text-gray-600">
-                                                    Document details for "{item}" - Download link available here.
-                                                </p>
-                                                <button className="mt-2 bg-primary text-white px-4 py-1 rounded hover:bg-secondary transition">
-                                                    Download PDF
-                                                </button>
+                                            <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="flex-1">
+                                                        <p className="text-sm text-gray-600 mb-3">
+                                                            Access and download the complete document for "{item}". 
+                                                            This document contains detailed information and official records.
+                                                        </p>
+                                                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                                                            <CheckCircle className="h-3 w-3 text-green-500" />
+                                                            <span>Verified Document</span>
+                                                            <span>•</span>
+                                                            <span>Last Updated: {year}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-3">
+                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                        <Download className="h-4 w-4" />
+                                                        Download PDF
+                                                    </button>
+                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                        <Eye className="h-4 w-4" />
+                                                        Preview
+                                                    </button>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -294,8 +338,107 @@ const IQACPage = () => {
         </div>
     );
 
+    const ModernTable = ({ title, data, icon: Icon }) => (
+        <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-green-100 to-blue-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-green-600" />
+                </div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                    {title}
+                </h2>
+            </div>
+            <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+                <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+                    <div className="grid grid-cols-12 gap-4 p-6">
+                        <div className="col-span-1 font-semibold">S. No.</div>
+                        <div className="col-span-8 font-semibold">Document</div>
+                        <div className="col-span-3 font-semibold text-center">Action</div>
+                    </div>
+                </div>
+                <div className="divide-y divide-gray-100">
+                    {data.map((item, idx) => (
+                        <div key={idx} className="grid grid-cols-12 gap-4 p-6 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 group">
+                            <div className="col-span-1 flex items-center">
+                                <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                                    {String(idx + 1).padStart(2, '0')}
+                                </span>
+                            </div>
+                            <div className="col-span-8 flex items-center">
+                                <div className="flex items-center gap-3">
+                                    <FileText className="h-5 w-5 text-blue-500 group-hover:text-blue-600" />
+                                    <span className="font-medium text-gray-800 group-hover:text-gray-900">{item}</span>
+                                </div>
+                            </div>
+                            <div className="col-span-3 flex justify-center">
+                                <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+                                    <Download className="h-4 w-4" />
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+
+    const SimpleDropdown = ({ title, data, openYear, setOpenYear, icon: Icon }) => (
+        <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-purple-600" />
+                </div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    {title}
+                </h2>
+            </div>
+            <div className="grid gap-4">
+                {Object.entries(data).map(([year, items]) => (
+                    <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <button
+                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 focus:outline-none flex justify-between items-center transition-all duration-300"
+                            onClick={() => setOpenYear(openYear === year ? null : year)}
+                        >
+                            <div className="flex items-center gap-3">
+                                <Calendar className="h-5 w-5 text-purple-500" />
+                                <span className="text-lg">{year}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm bg-purple-100 text-purple-700 px-3 py-1 rounded-full">
+                                    {items.length} items
+                                </span>
+                                {openYear === year ? (
+                                    <ChevronDown className="h-5 w-5 text-purple-600" />
+                                ) : (
+                                    <ChevronRight className="h-5 w-5 text-purple-600" />
+                                )}
+                            </div>
+                        </button>
+                        {openYear === year && (
+                            <div className="px-8 pb-6 bg-gradient-to-br from-gray-50 to-purple-50">
+                                {items.map((item, idx) => (
+                                    <div key={idx} className="flex justify-between items-center py-3 border-b border-gray-200 last:border-b-0">
+                                        <div className="flex items-center gap-3">
+                                            <FileText className="h-4 w-4 text-purple-500" />
+                                            <span className="text-gray-700 font-medium">{item}</span>
+                                        </div>
+                                        <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-200 shadow-md hover:shadow-lg">
+                                            <Download className="h-4 w-4" />
+                                            Download
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+
     return (
-        <div>
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
             <Header />
             <BreadCrumb
                 title="IQAC"
@@ -306,694 +449,225 @@ const IQACPage = () => {
                 ]}
             />
 
-            <div className="container mx-auto px-4 py-10">
-                {/* About IQAC */}
-                <div className="mb-12">
-                    <h2 className="text-3xl font-bold text-primary mb-6">About IQAC</h2>
-                    <div className="space-y-4 text-gray-700 leading-relaxed">
-                        <p>
-                            The Internal Quality Assurance Cell (IQAC) of Poornima Institute of Engineering and Technology, Jaipur was established in 2018 to enhance teaching-learning quality and sustain the institution's performance. The IQAC focuses on fostering a culture of belongingness and stakeholder participation in all activities.
-                        </p>
-                        <p>
-                            The institute's vision emphasizes "Pursuit of Excellence in Education," followed by Research and Entrepreneurship. The institution practices outcome-based education, student-centric experimental learning, participative learning, and problem-solving methodologies to improve learning experiences.
-                        </p>
-                        <p>
-                            The IQAC monitors academic activities, channels efforts, and institutionalizes good practices towards academic excellence. The IQAC includes the head of the institution, senior faculty members, distinguished educationalists, industry experts, local management representatives, and stakeholders.
-                        </p>
+            <div className="container mx-auto px-4 py-12">
+                {/* Hero Section */}
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-3 bg-white shadow-lg rounded-full px-8 py-4 mb-6">
+                        <Award className="h-8 w-8 text-blue-500" />
+                        <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Excellence in Quality Assurance
+                        </span>
+                    </div>
+                    <h1 className="text-5xl font-bold text-gray-800 mb-4">
+                        Internal Quality <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Assurance Cell</span>
+                    </h1>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Fostering a culture of excellence and continuous improvement in educational standards at PIET
+                    </p>
+                </div>
+
+                {/* About IQAC - Enhanced */}
+                <div className="mb-16">
+                    <div className="bg-white rounded-3xl shadow-xl p-10 border border-gray-100">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="p-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl">
+                                <Users className="h-8 w-8 text-blue-600" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                About IQAC
+                            </h2>
+                        </div>
+                        <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
+                            <p className="border-l-4 border-blue-500 pl-6 bg-blue-50 p-4 rounded-r-lg">
+                                The Internal Quality Assurance Cell (IQAC) of Poornima Institute of Engineering and Technology, Jaipur was established in <strong>2018</strong> to enhance teaching-learning quality and sustain the institution's performance. The IQAC focuses on fostering a culture of belongingness and stakeholder participation in all activities.
+                            </p>
+                            <p className="border-l-4 border-purple-500 pl-6 bg-purple-50 p-4 rounded-r-lg">
+                                The institute's vision emphasizes <strong>"Pursuit of Excellence in Education,"</strong> followed by Research and Entrepreneurship. The institution practices outcome-based education, student-centric experimental learning, participative learning, and problem-solving methodologies to improve learning experiences.
+                            </p>
+                            <p className="border-l-4 border-green-500 pl-6 bg-green-50 p-4 rounded-r-lg">
+                                The IQAC monitors academic activities, channels efforts, and institutionalizes good practices towards academic excellence. The IQAC includes the head of the institution, senior faculty members, distinguished educationalists, industry experts, local management representatives, and stakeholders.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* Vision and Mission */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105 border-l-4 border-primary">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">Vision</h3>
-                        <p className="text-gray-700 leading-relaxed">
-                            To practice benchmarks and sustainable quality mechanism in academic and research initiative and process.
-                        </p>
+                {/* Vision and Mission - Enhanced */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <div className="bg-white shadow-xl rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -translate-y-16 translate-x-16"></div>
+                        <div className="relative">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
+                                    <Target className="h-6 w-6 text-white" />
+                                </div>
+                                <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Vision</h3>
+                            </div>
+                            <p className="text-gray-700 leading-relaxed text-lg">
+                                To practice benchmarks and sustainable quality mechanism in academic and research initiative and process.
+                            </p>
+                        </div>
                     </div>
-                    <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105 border-l-4 border-secondary">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">Mission</h3>
-                        <ul className="list-disc list-inside text-gray-700 space-y-2 leading-relaxed">
-                            <li>To be the driving force for enhancing quality and channelize and systematize the efforts towards academic excellence.</li>
-                            <li>To establish student Learning-Centric environment by use of ICT tools for teaching and learning process.</li>
-                            <li>To assess the progress of the academic process through audit system and ensure transparent operations.</li>
-                            <li>To ensure the adequacy and smooth functioning of the support structure and build association with stakeholders.</li>
+
+                    <div className="bg-white shadow-xl rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-100 to-blue-100 rounded-full -translate-y-16 translate-x-16"></div>
+                        <div className="relative">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="p-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl">
+                                    <BookOpen className="h-6 w-6 text-white" />
+                                </div>
+                                <h3 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Mission</h3>
+                            </div>
+                            <ul className="space-y-3 text-gray-700 leading-relaxed">
+                                <li className="flex items-start gap-3">
+                                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                                    <span>To be the driving force for enhancing quality and channelize efforts towards academic excellence.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                                    <span>To establish student Learning-Centric environment by use of ICT tools for teaching and learning process.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                                    <span>To assess the progress through audit system and ensure transparent operations.</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                                    <span>To ensure adequacy of support structure and build association with stakeholders.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {/* IQAC Strategies and Functions - Enhanced */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <div className="bg-white shadow-xl rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="p-3 bg-gradient-to-r from-orange-100 to-red-100 rounded-xl">
+                                <Target className="h-6 w-6 text-orange-600" />
+                            </div>
+                            <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">IQAC Strategies</h3>
+                        </div>
+                        <ul className="space-y-3 text-gray-700 leading-relaxed">
+                            {[
+                                'Ensuring timely, efficient and progressive performance of academic, administrative and financial tasks',
+                                'The relevance and quality of academic and research programmes',
+                                'Equitable access to and affordability of academic programmes',
+                                'Optimization and integration of modern methods of teaching and learning',
+                                'The credibility of evaluation procedures',
+                                'Ensuring the adequacy, maintenance and proper allocation of support structure'
+                            ].map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3">
+                                    <CheckCircle className="h-4 w-4 text-orange-500 mt-1 flex-shrink-0" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="bg-white shadow-xl rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="p-3 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-xl">
+                                <BookOpen className="h-6 w-6 text-teal-600" />
+                            </div>
+                            <h3 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">IQAC Functions</h3>
+                        </div>
+                        <ul className="space-y-3 text-gray-700 leading-relaxed">
+                            {[
+                                'Development and application of quality benchmarks/parameters',
+                                'Facilitating the creation of a learner-centric environment',
+                                'Arrangement for feedback response from stakeholders',
+                                'Dissemination of information on various quality parameters',
+                                'Organization of workshops, seminars on quality related themes',
+                                'Documentation of various programs/activities leading to quality improvement',
+                                'Development and maintenance of institutional database through MIS'
+                            ].map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3">
+                                    <CheckCircle className="h-4 w-4 text-teal-500 mt-1 flex-shrink-0" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
-                {/* IQAC Strategies and Functions */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">IQAC Strategies</h3>
-                        <ul className="list-disc list-inside text-gray-700 space-y-2 leading-relaxed">
-                            <li>Ensuring timely, efficient and progressive performance of academic, administrative and financial tasks</li>
-                            <li>The relevance and quality of academic and research programmes</li>
-                            <li>Equitable access to and affordability of academic programmes</li>
-                            <li>Optimization and integration of modern methods of teaching and learning</li>
-                            <li>The credibility of evaluation procedures</li>
-                            <li>Ensuring the adequacy, maintenance and proper allocation of support structure</li>
-                        </ul>
-                    </div>
+                {/* Tables with modern design */}
+                <ModernTable title="Quality Policy" data={['Quality Policy']} icon={FileText} />
+                <ModernTable title="IQAC Constitution" data={iqacConstitution} icon={Users} />
+                <ModernTable title="IQAC Handbook" data={['IQAC Handbook']} icon={BookOpen} />
+                <ModernTable title="IQAC Initiatives" data={iqacInitiatives} icon={Target} />
+                <ModernTable title="Institute Perspective Plan" data={['Institute Perspective Plan']} icon={FileText} />
 
-                    <div className="bg-white shadow-lg rounded-xl p-8 hover:shadow-xl transition-transform hover:scale-105">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">IQAC Functions</h3>
-                        <ul className="list-disc list-inside text-gray-700 space-y-2 leading-relaxed">
-                            <li>Development and application of quality benchmarks/parameters</li>
-                            <li>Facilitating the creation of a learner-centric environment</li>
-                            <li>Arrangement for feedback response from stakeholders</li>
-                            <li>Dissemination of information on various quality parameters</li>
-                            <li>Organization of workshops, seminars on quality related themes</li>
-                            <li>Documentation of various programs/activities leading to quality improvement</li>
-                            <li>Development and maintenance of institutional database through MIS</li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Quality Policy */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Quality Policy</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">1</td>
-                                    <td className="p-4">Quality Policy</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* IQAC Constitution */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">IQAC Constitution</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {iqacConstitution.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* IQAC Handbook */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">IQAC Handbook</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">1</td>
-                                    <td className="p-4">IQAC Handbook</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* IQAC Initiatives */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">IQAC Initiatives</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {iqacInitiatives.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Institute Perspective Plan */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Institute Perspective Plan</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">1</td>
-                                    <td className="p-4">Institute Perspective Plan</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Double Dropdown Sections */}
-                <DoubleDropdown 
+                {/* Double Dropdown Sections with modern design */}
+                <ModernDoubleDropdown 
                     title="IQAC Meetings & Action Taken Reports"
                     data={iqacMeetingsData}
                     openYear={openMeetingsYear}
                     setOpenYear={setOpenMeetingsYear}
                     openItem={openMeetingsItem}
                     setOpenItem={setOpenMeetingsItem}
+                    icon={Users}
                 />
 
-                <DoubleDropdown 
+                <ModernDoubleDropdown 
                     title="IQAC Quality Activities"
                     data={iqacQualityActivities}
                     openYear={openQualityYear}
                     setOpenYear={setOpenQualityYear}
                     openItem={openQualityItem}
                     setOpenItem={setOpenQualityItem}
+                    icon={Award}
                 />
 
-                {/* Annual Quality Assurance Report (AQAR) */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Annual Quality Assurance Report (AQAR)</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {aqarReports.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <ModernTable title="Annual Quality Assurance Report (AQAR)" data={aqarReports} icon={FileText} />
+                <ModernTable title="Strategic Development Plan" data={strategicPlans} icon={Target} />
+                <ModernTable title="Feedback Policy" data={['Feedback Policy']} icon={FileText} />
+                <ModernTable title="Feedback Forms" data={feedbackForms} icon={FileText} />
+                <ModernTable title="Feedback Analysis & ATR" data={feedbackAnalysis} icon={FileText} />
+                <ModernTable title="Students Satisfaction Survey" data={studentSurveys} icon={Users} />
 
-                {/* Strategic Development Plan */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Strategic Development Plan</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {strategicPlans.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Feedback Policy */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Feedback Policy</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">1</td>
-                                    <td className="p-4">Feedback Policy</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Feedback Forms */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Feedback Forms</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {feedbackForms.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Feedback Analysis & ATR */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Feedback Analysis & ATR</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {feedbackAnalysis.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Students Satisfaction Survey */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Students Satisfaction Survey</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {studentSurveys.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* FDP's/Workshops for Faculty & Staff with Dropdown */}
-                <DoubleDropdown 
+                <ModernDoubleDropdown 
                     title="FDP's/Workshops for Faculty & Staff"
                     data={fdpWorkshopsData}
                     openYear={openFDPYear}
                     setOpenYear={setOpenFDPYear}
                     openItem={openFDPItem}
                     setOpenItem={setOpenFDPItem}
+                    icon={BookOpen}
                 />
 
-                {/* Academic Calendars with Dropdown */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Academic Calendars</h2>
-                    <div className="space-y-4">
-                        {Object.entries(academicCalendars).map(([year, items]) => (
-                            <div key={year} className="border rounded-xl shadow-md">
-                                <button
-                                    className="w-full text-left px-6 py-4 font-semibold text-secondary hover:bg-gray-100 focus:outline-none flex justify-between items-center"
-                                    onClick={() => setOpenCalendarYear(openCalendarYear === year ? null : year)}
-                                >
-                                    <span>{year}</span>
-                                    <span className="text-xl">{openCalendarYear === year ? '▼' : '►'}</span>
-                                </button>
-                                {openCalendarYear === year && (
-                                    <div className="px-6 pb-4">
-                                        {items.map((item, idx) => (
-                                            <div key={idx} className="flex justify-between items-center py-2 border-b">
-                                                <span className="text-gray-700">{item}</span>
-                                                <button className="bg-primary text-white px-4 py-1 rounded hover:bg-secondary transition">
-                                                    Download
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <SimpleDropdown 
+                    title="Academic Calendars"
+                    data={academicCalendars}
+                    openYear={openCalendarYear}
+                    setOpenYear={setOpenCalendarYear}
+                    icon={Calendar}
+                />
 
-                {/* Academic & Administrative Audit */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Academic & Administrative Audit</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {academicAudits.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{idx + 1}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <ModernTable title="Academic & Administrative Audit" data={academicAudits} icon={FileText} />
 
-                {/* Environment Audits Certificates with Dropdown */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Environment Audits Certificates</h2>
-                    <div className="space-y-4">
-                        {Object.entries(environmentAuditCertificates).map(([year, items]) => (
-                            <div key={year} className="border rounded-xl shadow-md">
-                                <button
-                                    className="w-full text-left px-6 py-4 font-semibold text-secondary hover:bg-gray-100 focus:outline-none flex justify-between items-center"
-                                    onClick={() => setOpenEnvCertYear(openEnvCertYear === year ? null : year)}
-                                >
-                                    <span>{year}</span>
-                                    <span className="text-xl">{openEnvCertYear === year ? '▼' : '►'}</span>
-                                </button>
-                                {openEnvCertYear === year && (
-                                    <div className="px-6 pb-4">
-                                        {items.map((item, idx) => (
-                                            <div key={idx} className="flex justify-between items-center py-2 border-b">
-                                                <span className="text-gray-700">{item}</span>
-                                                <button className="bg-primary text-white px-4 py-1 rounded hover:bg-secondary transition">
-                                                    Download
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <SimpleDropdown 
+                    title="Environment Audits Certificates"
+                    data={environmentAuditCertificates}
+                    openYear={openEnvCertYear}
+                    setOpenYear={setOpenEnvCertYear}
+                    icon={Award}
+                />
 
-                {/* Environment Audits Reports with Dropdown */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Environment Audits Reports</h2>
-                    <div className="space-y-4">
-                        {Object.entries(environmentAuditReports).map(([year, items]) => (
-                            <div key={year} className="border rounded-xl shadow-md">
-                                <button
-                                    className="w-full text-left px-6 py-4 font-semibold text-secondary hover:bg-gray-100 focus:outline-none flex justify-between items-center"
-                                    onClick={() => setOpenEnvReportYear(openEnvReportYear === year ? null : year)}
-                                >
-                                    <span>{year}</span>
-                                    <span className="text-xl">{openEnvReportYear === year ? '▼' : '►'}</span>
-                                </button>
-                                {openEnvReportYear === year && (
-                                    <div className="px-6 pb-4">
-                                        {items.map((item, idx) => (
-                                            <div key={idx} className="flex justify-between items-center py-2 border-b">
-                                                <span className="text-gray-700">{item}</span>
-                                                <button className="bg-primary text-white px-4 py-1 rounded hover:bg-secondary transition">
-                                                    Download
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <SimpleDropdown 
+                    title="Environment Audits Reports"
+                    data={environmentAuditReports}
+                    openYear={openEnvReportYear}
+                    setOpenYear={setOpenEnvReportYear}
+                    icon={FileText}
+                />
 
-                {/* Best Practices */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Best Practices</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {bestPractices.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{String(idx + 1).padStart(2, '0')}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Best Practices Evidence */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Best Practices Evidence</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {bestPracticesEvidence.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-blue-50">
-                                        <td className="p-4">{String(idx + 1).padStart(2, '0')}</td>
-                                        <td className="p-4">{item}</td>
-                                        <td className="p-4">
-                                            <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                                Download
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Institute Distinctiveness */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Institute Distinctiveness</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">01</td>
-                                    <td className="p-4">Institute Distinctiveness</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Institute Distinctiveness Evidences */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Institute Distinctiveness Evidences</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">01</td>
-                                    <td className="p-4">Institute Distinctiveness Evidences</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Green Initiatives */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Green Initiatives</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">01</td>
-                                    <td className="p-4">Green Initiatives</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Events on Green Practices */}
-                <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-primary mb-4">Events on Green Practices</h2>
-                    <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-secondary text-white">
-                                <tr>
-                                    <th className="p-4 text-left">S. No.</th>
-                                    <th className="p-4 text-left">Document</th>
-                                    <th className="p-4 text-left">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-blue-50">
-                                    <td className="p-4">01</td>
-                                    <td className="p-4">Events on Green Practices</td>
-                                    <td className="p-4">
-                                        <button className="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition">
-                                            Download
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <ModernTable title="Best Practices" data={bestPractices} icon={Award} />
+                <ModernTable title="Best Practices Evidence" data={bestPracticesEvidence} icon={FileText} />
+                <ModernTable title="Institute Distinctiveness" data={['Institute Distinctiveness']} icon={Award} />
+                <ModernTable title="Institute Distinctiveness Evidences" data={['Institute Distinctiveness Evidences']} icon={FileText} />
+                <ModernTable title="Green Initiatives" data={['Green Initiatives']} icon={Award} />
+                <ModernTable title="Events on Green Practices" data={['Events on Green Practices']} icon={FileText} />
             </div>
 
             <Cta />
