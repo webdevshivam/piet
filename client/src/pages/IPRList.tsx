@@ -140,19 +140,19 @@ const IPRList = () => {
             />
 
             {/* Hero Section */}
-            <section className="py-16 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
+            <section className="py-12 bg-primary relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/10"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center text-white">
-                        <div className="flex justify-center mb-6">
-                            <div className="p-4 bg-white/20 rounded-full backdrop-blur-sm">
-                                <Lightbulb className="h-12 w-12 text-white" />
+                        <div className="flex justify-center mb-4">
+                            <div className="p-3 bg-white/20 rounded-full backdrop-blur-sm">
+                                <Lightbulb className="h-8 w-8 text-white" />
                             </div>
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4">
                             Innovation & Patents
                         </h1>
-                        <p className="text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
+                        <p className="text-lg max-w-2xl mx-auto leading-relaxed opacity-90">
                             Discover the groundbreaking research and innovative solutions developed by our faculty and students. 
                             From AI-powered systems to IoT innovations, explore our intellectual property portfolio.
                         </p>
@@ -168,25 +168,25 @@ const IPRList = () => {
                             icon={<FileText className="h-8 w-8" />}
                             title="Total Patents Filed"
                             value={totalPatents.toString()}
-                            color="bg-gradient-to-r from-blue-600 to-blue-700"
+                            color="bg-primary"
                         />
                         <StatsCard
                             icon={<Calendar className="h-8 w-8" />}
                             title="Years of Innovation"
                             value={years.toString()}
-                            color="bg-gradient-to-r from-green-600 to-green-700"
+                            color="bg-primary"
                         />
                         <StatsCard
                             icon={<Award className="h-8 w-8" />}
                             title="Latest Patents"
                             value={iprData[latestYear]?.length.toString() || '0'}
-                            color="bg-gradient-to-r from-purple-600 to-purple-700"
+                            color="bg-primary"
                         />
                         <StatsCard
                             icon={<Users className="h-8 w-8" />}
                             title="Active Researchers"
                             value="25+"
-                            color="bg-gradient-to-r from-orange-600 to-red-600"
+                            color="bg-primary"
                         />
                     </div>
                 </div>
