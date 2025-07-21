@@ -486,10 +486,10 @@ const IQACPage = () => {
     const QualityActivitiesDropdown = ({ title, data, openYear, setOpenYear, icon: Icon }) => (
         <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-r from-green-100 to-blue-100 rounded-xl">
-                    <Icon className="h-6 w-6 text-green-600" />
+                <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
@@ -497,26 +497,26 @@ const IQACPage = () => {
                 {Object.entries(data).map(([year, activities]) => (
                     <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <button
-                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 focus:outline-none flex justify-between items-center transition-all duration-300"
+                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 focus:outline-none flex justify-between items-center transition-all duration-300"
                             onClick={() => setOpenYear(openYear === year ? null : year)}
                         >
                             <div className="flex items-center gap-3">
-                                <Calendar className="h-5 w-5 text-green-500" />
+                                <Calendar className="h-5 w-5 text-blue-500" />
                                 <span className="text-lg">{year}</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full">
+                                <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
                                     {activities.length} activities
                                 </span>
                                 {openYear === year ? (
-                                    <ChevronDown className="h-5 w-5 text-green-600" />
+                                    <ChevronDown className="h-5 w-5 text-blue-600" />
                                 ) : (
-                                    <ChevronRight className="h-5 w-5 text-green-600" />
+                                    <ChevronRight className="h-5 w-5 text-blue-600" />
                                 )}
                             </div>
                         </button>
                         {openYear === year && (
-                            <div className="bg-gradient-to-br from-gray-50 to-green-50">
+                            <div className="bg-gradient-to-br from-gray-50 to-blue-50">
                                 <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
                                     <div className="grid grid-cols-12 gap-4 p-4">
                                         <div className="col-span-1 font-semibold text-sm">S. No.</div>
@@ -526,21 +526,21 @@ const IQACPage = () => {
                                 </div>
                                 <div className="divide-y divide-gray-100">
                                     {activities.map((activity, idx) => (
-                                        <div key={idx} className="grid grid-cols-12 gap-4 p-4 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition-all duration-200 group">
+                                        <div key={idx} className="grid grid-cols-12 gap-4 p-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 group">
                                             <div className="col-span-1 flex items-center">
-                                                <span className="bg-green-100 text-green-800 text-sm font-medium px-2 py-1 rounded-full">
+                                                <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2 py-1 rounded-full">
                                                     {String(idx + 1).padStart(2, '0')}
                                                 </span>
                                             </div>
                                             <div className="col-span-7 flex items-center">
                                                 <div className="flex items-start gap-3">
-                                                    <Award className="h-4 w-4 text-green-500 group-hover:text-green-600 mt-1 flex-shrink-0" />
+                                                    <Award className="h-4 w-4 text-blue-500 group-hover:text-blue-600 mt-1 flex-shrink-0" />
                                                     <span className="font-medium text-gray-800 group-hover:text-gray-900 text-sm leading-relaxed">{activity.name}</span>
                                                 </div>
                                             </div>
                                             <div className="col-span-4 flex items-center">
                                                 <div className="flex items-start gap-2">
-                                                    <Users className="h-4 w-4 text-blue-500 group-hover:text-blue-600 mt-1 flex-shrink-0" />
+                                                    <Users className="h-4 w-4 text-purple-500 group-hover:text-purple-600 mt-1 flex-shrink-0" />
                                                     <span className="text-gray-700 group-hover:text-gray-800 text-sm leading-relaxed">{activity.organization}</span>
                                                 </div>
                                             </div>
@@ -649,10 +649,10 @@ const IQACPage = () => {
     const ModernTable = ({ title, data, icon: Icon }) => (
         <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-r from-green-100 to-blue-100 rounded-xl">
-                    <Icon className="h-6 w-6 text-green-600" />
+                <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {title}
                 </h2>
             </div>
