@@ -72,8 +72,41 @@ const AlumniRegistration = () => {
     return null;
   };
 
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.name.trim()) errors.push("Name is required");
+    if (!formData.batch.trim()) errors.push("Batch year is required");
+    if (!formData.fromCity.trim()) errors.push("Hometown is required");
+    if (!formData.currentCity.trim()) errors.push("Current city is required");
+    if (!formData.companyName.trim()) errors.push("Company name is required");
+    if (!formData.position.trim()) errors.push("Position is required");
+    if (!formData.email.trim()) errors.push("Email is required");
+    if (!formData.phone.trim()) errors.push("Phone number is required");
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email && !emailRegex.test(formData.email)) {
+      errors.push("Please enter a valid email address");
+    }
+    
+    return errors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate form
+    const validationErrors = validateForm();
+    if (validationErrors.length > 0) {
+      toast({
+        title: "Validation Error",
+        description: validationErrors.join(", "),
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -83,19 +116,21 @@ const AlumniRegistration = () => {
         photoUrl = await uploadPhoto(formData.photo);
       }
 
-      // Prepare data according to schema
+      // Prepare data according to schema - ensure no empty strings
       const alumniData = {
-        name: formData.name,
-        batch: formData.batch,
-        fromCity: formData.fromCity,
-        currentCity: formData.currentCity,
-        companyName: formData.companyName,
-        position: formData.position,
-        email: formData.email,
-        phone: formData.phone,
-        achievements: formData.achievements || undefined,
-        photoUrl: photoUrl || undefined,
+        name: formData.name.trim(),
+        batch: formData.batch.trim(),
+        fromCity: formData.fromCity.trim(),
+        currentCity: formData.currentCity.trim(),
+        companyName: formData.companyName.trim(),
+        position: formData.position.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        ...(formData.achievements && formData.achievements.trim() && { achievements: formData.achievements.trim() }),
+        ...(photoUrl && { photoUrl: photoUrl }),
       };
+
+      console.log('Sending alumni data:', alumniData);
 
       const response = await fetch('https://piet-admin-1.onrender.com/api/alumni', {
         method: 'POST',
@@ -105,8 +140,19 @@ const AlumniRegistration = () => {
         body: JSON.stringify(alumniData),
       });
 
+      console.log('Response status:', response.status);
+      
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+      
       if (response.ok) {
-        const result = await response.json();
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch (parseError) {
+          result = { message: 'Registration successful' };
+        }
+        
         toast({
           title: "Success!",
           description: "Alumni registration submitted successfully!",
@@ -131,14 +177,20 @@ const AlumniRegistration = () => {
         if (fileInput) fileInput.value = '';
         
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Registration failed');
+        let errorMessage = 'Registration failed';
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.message || errorData.error || 'Invalid data - please check all required fields';
+        } catch (parseError) {
+          errorMessage = responseText || 'Registration failed';
+        }
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error('Registration error:', error);
       toast({
-        title: "Error",
-        description: error.message || "Failed to submit registration. Please try again.",
+        title: "Registration Error",
+        description: error.message || "Failed to submit registration. Please check all fields and try again.",
         variant: "destructive",
       });
     } finally {
