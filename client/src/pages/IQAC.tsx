@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,90 +88,235 @@ const bestPracticesEvidence = [
     'Best Practices 2 Evidence'
 ];
 
-// Data for IQAC Meetings & Action Taken Reports with nested structure
+// Enhanced data for IQAC Meetings & Action Taken Reports with triple nested structure
 const iqacMeetingsData = {
-    '2024-25': [
-        'Meeting 1 - April 2024',
-        'Meeting 2 - August 2024',
-        'Action Taken Report - Q1',
-        'Action Taken Report - Q2'
-    ],
-    '2023-24': [
-        'Meeting 1 - May 2023',
-        'Meeting 2 - September 2023',
-        'Meeting 3 - December 2023',
-        'Action Taken Report - Annual'
-    ],
-    '2022-23': [
-        'Meeting 1 - June 2022',
-        'Meeting 2 - October 2022',
-        'Meeting 3 - February 2023',
-        'Action Taken Report - Annual'
-    ],
-    '2021-22': [
-        'Meeting 1 - July 2021',
-        'Meeting 2 - November 2021',
-        'Action Taken Report - Annual'
-    ],
-    '2020-21': [
-        'Meeting 1 - August 2020',
-        'Meeting 2 - December 2020',
-        'Action Taken Report - Annual'
-    ],
-    '2019-20': [
-        'Meeting 1 - September 2019',
-        'Meeting 2 - January 2020',
-        'Action Taken Report - Annual'
-    ],
-    '2018-19': [
-        'Meeting 1 - October 2018',
-        'Action Taken Report - Annual'
-    ]
+    '2024-25': {
+        'Meeting 27': [
+            'Action Taken of Meeting - 26',
+            'Agenda of meeting - 27',
+            'Minutes of Meeting - 27'
+        ],
+        'Meeting 26': [
+            'Action Taken of Meeting - 25',
+            'Agenda of meeting - 26',
+            'Minutes of Meeting - 26'
+        ],
+        'Meeting 25': [
+            'Action Taken of Meeting - 24',
+            'Agenda of meeting - 25',
+            'Minutes of Meeting - 25'
+        ]
+    },
+    '2023-24': {
+        'Meeting 24': [
+            'Action Taken of Meeting - 23',
+            'Agenda of meeting - 24',
+            'Minutes of Meeting - 24'
+        ],
+        'Meeting 23': [
+            'Action Taken of Meeting - 22',
+            'Agenda of meeting - 23',
+            'Minutes of Meeting - 23'
+        ],
+        'Meeting 22': [
+            'Action Taken of Meeting - 21',
+            'Agenda of meeting - 22',
+            'Minutes of Meeting - 22'
+        ],
+        'Meeting 21': [
+            'Action Taken of Meeting - 20',
+            'Agenda of meeting - 21',
+            'Minutes of Meeting - 21'
+        ]
+    },
+    '2022-23': {
+        'Meeting 20': [
+            'Action Taken of Meeting - 19',
+            'Agenda of meeting - 20',
+            'Minutes of Meeting - 20'
+        ],
+        'Meeting 19': [
+            'Action Taken of Meeting - 18',
+            'Agenda of meeting - 19',
+            'Minutes of Meeting - 19'
+        ],
+        'Meeting 18': [
+            'Action Taken of Meeting - 17',
+            'Agenda of meeting - 18',
+            'Minutes of Meeting - 18'
+        ]
+    },
+    '2021-22': {
+        'Meeting 17': [
+            'Action Taken of Meeting - 16',
+            'Agenda of meeting - 17',
+            'Minutes of Meeting - 17'
+        ],
+        'Meeting 16': [
+            'Action Taken of Meeting - 15',
+            'Agenda of meeting - 16',
+            'Minutes of Meeting - 16'
+        ],
+        'Meeting 15': [
+            'Action Taken of Meeting - 14',
+            'Agenda of meeting - 15',
+            'Minutes of Meeting - 15'
+        ]
+    },
+    '2020-21': {
+        'Meeting 14': [
+            'Action Taken of Meeting - 13',
+            'Agenda of meeting - 14',
+            'Minutes of Meeting - 14'
+        ],
+        'Meeting 13': [
+            'Action Taken of Meeting - 12',
+            'Agenda of meeting - 13',
+            'Minutes of Meeting - 13'
+        ]
+    },
+    '2019-20': {
+        'Meeting 12': [
+            'Action Taken of Meeting - 11',
+            'Agenda of meeting - 12',
+            'Minutes of Meeting - 12'
+        ],
+        'Meeting 11': [
+            'Action Taken of Meeting - 10',
+            'Agenda of meeting - 11',
+            'Minutes of Meeting - 11'
+        ]
+    },
+    '2018-19': {
+        'Meeting 10': [
+            'Action Taken of Meeting - 9',
+            'Agenda of meeting - 10',
+            'Minutes of Meeting - 10'
+        ]
+    }
 };
 
-// Data for IQAC Quality Activities with nested structure
+// Enhanced data for IQAC Quality Activities with proper structure
 const iqacQualityActivities = {
     '2023-2024': [
-        'Faculty Development Programs',
-        'Quality Enhancement Workshops',
-        'Student Feedback Analysis',
-        'Curriculum Review Activities',
-        'Research Quality Initiatives'
+        {
+            name: 'Innovation,Design,and Entrepreneurship(IDE) Bootcamp for Students Innovations and Teachers of Schools',
+            organization: 'AICTE'
+        },
+        {
+            name: '5th International Conference on Information Management & Machine Intelligence (ICIMMI-2023)',
+            organization: 'Asian University and IIIT Nagpur'
+        },
+        {
+            name: 'First International Conference on "Mathematics, Modelling and Statistics (ICMMS 2023)"',
+            organization: 'ISTE'
+        },
+        {
+            name: 'International Conference on Smart Innovations for Society (ICSIS- 2024)',
+            organization: 'PIET'
+        },
+        {
+            name: 'International Conference on Intelligent Systems & Computing (ICISC 2024)',
+            organization: 'PIET'
+        },
+        {
+            name: 'International Conference on Recent Advances in Artificial intelligence, Computer Vision & Smart Systems (ICRACS 2024)',
+            organization: 'PIET'
+        },
+        {
+            name: 'Smart India Hackathon (Software Edition) Grand Finale -2023',
+            organization: 'Ministry of Education Govt of India and AICTE'
+        },
+        {
+            name: 'Approach to Innovation and IPR Registration',
+            organization: 'AICTE IDEA LAB'
+        }
     ],
     '2022-2023': [
-        'Teaching Learning Process Enhancement',
-        'Quality Audit Activities',
-        'Stakeholder Feedback Collection',
-        'Academic Quality Improvement',
-        'Infrastructure Quality Assessment'
+        {
+            name: '4th International Conference on Information Management &Machine Intelligence (ICIMMI2022)',
+            organization: 'ICPS (Published by ACM), ISTE, Computer society of India'
+        },
+        {
+            name: 'Offline FDP on "Advanced Tools & Techniques for Quality Research Analysis & Writing"',
+            organization: 'ISTE'
+        },
+        {
+            name: 'Six days Faculty Development Program on "Python Programming A-Z"',
+            organization: 'AICTE MODROB'
+        },
+        {
+            name: 'Session on "Quality Enhancement through Reverse Engineering for Product Design Using CAD"',
+            organization: 'CADEMATE'
+        },
+        {
+            name: 'Offline FDP on "Advanced Tools & Techniques for Quality Research Analysis & Writing"',
+            organization: 'ISTE'
+        }
     ],
     '2021-2022': [
-        'Digital Learning Initiatives',
-        'Quality Assurance Training',
-        'Student Satisfaction Surveys',
-        'Faculty Quality Programs',
-        'Assessment Reform Activities'
+        {
+            name: 'Faculty Development Program on "Effective Implementation of National Education Policy 2020"',
+            organization: 'IQAC'
+        },
+        {
+            name: 'One Week Skill Development Program on "Office Tools" for non-teaching staff',
+            organization: 'IQAC'
+        },
+        {
+            name: 'Faculty Induction Program on "Strategic Planning and Implementation in Teaching-Learning, Research and Innovations"',
+            organization: 'IQAC'
+        }
     ],
     '2020-2021': [
-        'Online Quality Enhancement',
-        'Virtual Teaching Training',
-        'Digital Assessment Methods',
-        'Quality Monitoring Systems',
-        'Remote Learning Quality'
+        {
+            name: 'RTU-PIET Hackathon-21',
+            organization: 'RTU-TEQIP-III'
+        },
+        {
+            name: 'International Conference on "Post Covid Challenges on Life and Livelihood (ICPCC)"',
+            organization: 'RTU-TEQIP-III'
+        },
+        {
+            name: 'Five Days Short Term Training Program "Environmental Impacts of COVID-19 Pandemic: Challenges and Remedies through Science and Engineering"',
+            organization: 'ISTE'
+        },
+        {
+            name: 'Three days International Online Faculty Development Program on "Computational Mathematics for Engineers and Researchers"',
+            organization: 'IQAC'
+        }
     ],
     '2019-2020': [
-        'Traditional Quality Methods',
-        'Classroom Quality Enhancement',
-        'Faculty Training Programs',
-        'Student Engagement Activities',
-        'Quality Documentation'
+        {
+            name: 'A session on "Research and Development"',
+            organization: 'IQAC'
+        },
+        {
+            name: 'FDP on "Vision-Mission, CO, PO, PSO Mapping, Assessment and Attainment"',
+            organization: 'IQAC'
+        },
+        {
+            name: '"The Smart City" Hackathon 2020',
+            organization: 'RTU-TEQIP-III'
+        }
     ],
     '2018-2019': [
-        'IQAC Establishment Activities',
-        'Initial Quality Framework',
-        'Basic Quality Training',
-        'Foundation Quality Programs',
-        'Quality Policy Development'
+        {
+            name: 'Session on "Elaborate the Quality Benchmarks"',
+            organization: 'IQAC'
+        },
+        {
+            name: 'Short Term Training Programme on "NBA Accreditation (ICT01)"',
+            organization: 'NITTTR, Kolkata'
+        },
+        {
+            name: 'FDP on "Quality Improvement in the Teaching Learning Process"',
+            organization: 'IQAC'
+        },
+        {
+            name: 'A session on "Improving the quality of Student Induction"',
+            organization: 'AICTE-IDEA Lab'
+        }
     ]
 };
 
@@ -238,16 +384,16 @@ const environmentAuditReports = {
 
 const IQACPage = () => {
     const [openMeetingsYear, setOpenMeetingsYear] = useState(null);
-    const [openMeetingsItem, setOpenMeetingsItem] = useState(null);
+    const [openMeetingsSubItem, setOpenMeetingsSubItem] = useState(null);
     const [openQualityYear, setOpenQualityYear] = useState(null);
-    const [openQualityItem, setOpenQualityItem] = useState(null);
     const [openFDPYear, setOpenFDPYear] = useState(null);
     const [openFDPItem, setOpenFDPItem] = useState(null);
     const [openCalendarYear, setOpenCalendarYear] = useState(null);
     const [openEnvCertYear, setOpenEnvCertYear] = useState(null);
     const [openEnvReportYear, setOpenEnvReportYear] = useState(null);
 
-    const ModernDoubleDropdown = ({ title, data, openYear, setOpenYear, openItem, setOpenItem, icon: Icon }) => (
+    // Triple Nested Dropdown for IQAC Meetings
+    const TripleNestedDropdown = ({ title, data, openYear, setOpenYear, openSubItem, setOpenSubItem, icon: Icon }) => (
         <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl">
@@ -258,13 +404,13 @@ const IQACPage = () => {
                 </h2>
             </div>
             <div className="grid gap-4">
-                {Object.entries(data).map(([year, items]) => (
+                {Object.entries(data).map(([year, meetings]) => (
                     <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
                         <button
                             className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 focus:outline-none flex justify-between items-center transition-all duration-300"
                             onClick={() => {
                                 setOpenYear(openYear === year ? null : year);
-                                setOpenItem(null);
+                                setOpenSubItem(null);
                             }}
                         >
                             <div className="flex items-center gap-3">
@@ -273,7 +419,7 @@ const IQACPage = () => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-                                    {items.length} items
+                                    {Object.keys(meetings).length} meetings
                                 </span>
                                 {openYear === year ? (
                                     <ChevronDown className="h-5 w-5 text-blue-600 transition-transform duration-200" />
@@ -284,24 +430,186 @@ const IQACPage = () => {
                         </button>
                         {openYear === year && (
                             <div className="px-8 pb-6 bg-gradient-to-br from-gray-50 to-blue-50 space-y-3">
+                                {Object.entries(meetings).map(([meetingName, documents]) => (
+                                    <div key={meetingName} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
+                                        <button
+                                            className="w-full text-left p-4 text-gray-700 hover:bg-blue-50 focus:outline-none flex justify-between items-center group"
+                                            onClick={() => setOpenSubItem(openSubItem === `${year}-${meetingName}` ? null : `${year}-${meetingName}`)}
+                                        >
+                                            <div className="flex items-center gap-3">
+                                                <Users className="h-4 w-4 text-blue-500 group-hover:text-blue-600" />
+                                                <span className="font-medium">{meetingName}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">
+                                                    {documents.length} docs
+                                                </span>
+                                                {openSubItem === `${year}-${meetingName}` ? (
+                                                    <ChevronDown className="h-4 w-4 text-blue-500" />
+                                                ) : (
+                                                    <ChevronRight className="h-4 w-4 text-blue-500" />
+                                                )}
+                                            </div>
+                                        </button>
+                                        {openSubItem === `${year}-${meetingName}` && (
+                                            <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200">
+                                                <div className="space-y-3">
+                                                    {documents.map((doc, idx) => (
+                                                        <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0">
+                                                            <div className="flex items-center gap-3">
+                                                                <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
+                                                                    {String(idx + 1).padStart(2, '0')}
+                                                                </span>
+                                                                <FileText className="h-4 w-4 text-blue-500" />
+                                                                <span className="text-gray-700 font-medium">{doc}</span>
+                                                            </div>
+                                                            <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200 shadow-md hover:shadow-lg text-sm">
+                                                                <Download className="h-3 w-3" />
+                                                                Download
+                                                            </button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+
+    // Enhanced Quality Activities Dropdown with table structure
+    const QualityActivitiesDropdown = ({ title, data, openYear, setOpenYear, icon: Icon }) => (
+        <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-green-100 to-blue-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-green-600" />
+                </div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                    {title}
+                </h2>
+            </div>
+            <div className="grid gap-4">
+                {Object.entries(data).map(([year, activities]) => (
+                    <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <button
+                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 focus:outline-none flex justify-between items-center transition-all duration-300"
+                            onClick={() => setOpenYear(openYear === year ? null : year)}
+                        >
+                            <div className="flex items-center gap-3">
+                                <Calendar className="h-5 w-5 text-green-500" />
+                                <span className="text-lg">{year}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full">
+                                    {activities.length} activities
+                                </span>
+                                {openYear === year ? (
+                                    <ChevronDown className="h-5 w-5 text-green-600" />
+                                ) : (
+                                    <ChevronRight className="h-5 w-5 text-green-600" />
+                                )}
+                            </div>
+                        </button>
+                        {openYear === year && (
+                            <div className="bg-gradient-to-br from-gray-50 to-green-50">
+                                <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+                                    <div className="grid grid-cols-12 gap-4 p-4">
+                                        <div className="col-span-1 font-semibold text-sm">S. No.</div>
+                                        <div className="col-span-7 font-semibold text-sm">Name of quality initiative by IQAC</div>
+                                        <div className="col-span-4 font-semibold text-sm">Collaborating Organization/Institute</div>
+                                    </div>
+                                </div>
+                                <div className="divide-y divide-gray-100">
+                                    {activities.map((activity, idx) => (
+                                        <div key={idx} className="grid grid-cols-12 gap-4 p-4 hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 transition-all duration-200 group">
+                                            <div className="col-span-1 flex items-center">
+                                                <span className="bg-green-100 text-green-800 text-sm font-medium px-2 py-1 rounded-full">
+                                                    {String(idx + 1).padStart(2, '0')}
+                                                </span>
+                                            </div>
+                                            <div className="col-span-7 flex items-center">
+                                                <div className="flex items-start gap-3">
+                                                    <Award className="h-4 w-4 text-green-500 group-hover:text-green-600 mt-1 flex-shrink-0" />
+                                                    <span className="font-medium text-gray-800 group-hover:text-gray-900 text-sm leading-relaxed">{activity.name}</span>
+                                                </div>
+                                            </div>
+                                            <div className="col-span-4 flex items-center">
+                                                <div className="flex items-start gap-2">
+                                                    <Users className="h-4 w-4 text-blue-500 group-hover:text-blue-600 mt-1 flex-shrink-0" />
+                                                    <span className="text-gray-700 group-hover:text-gray-800 text-sm leading-relaxed">{activity.organization}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+
+    const ModernDoubleDropdown = ({ title, data, openYear, setOpenYear, openItem, setOpenItem, icon: Icon }) => (
+        <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl">
+                    <Icon className="h-6 w-6 text-purple-600" />
+                </div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    {title}
+                </h2>
+            </div>
+            <div className="grid gap-4">
+                {Object.entries(data).map(([year, items]) => (
+                    <div key={year} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
+                        <button
+                            className="w-full text-left px-8 py-6 font-semibold text-gray-800 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 focus:outline-none flex justify-between items-center transition-all duration-300"
+                            onClick={() => {
+                                setOpenYear(openYear === year ? null : year);
+                                setOpenItem(null);
+                            }}
+                        >
+                            <div className="flex items-center gap-3">
+                                <Calendar className="h-5 w-5 text-purple-500" />
+                                <span className="text-lg">{year}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm bg-purple-100 text-purple-700 px-3 py-1 rounded-full">
+                                    {items.length} items
+                                </span>
+                                {openYear === year ? (
+                                    <ChevronDown className="h-5 w-5 text-purple-600 transition-transform duration-200" />
+                                ) : (
+                                    <ChevronRight className="h-5 w-5 text-purple-600 transition-transform duration-200" />
+                                )}
+                            </div>
+                        </button>
+                        {openYear === year && (
+                            <div className="px-8 pb-6 bg-gradient-to-br from-gray-50 to-purple-50 space-y-3">
                                 {items.map((item, idx) => (
                                     <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-200">
                                         <button
-                                            className="w-full text-left p-4 text-gray-700 hover:bg-blue-50 focus:outline-none flex justify-between items-center group"
+                                            className="w-full text-left p-4 text-gray-700 hover:bg-purple-50 focus:outline-none flex justify-between items-center group"
                                             onClick={() => setOpenItem(openItem === `${year}-${idx}` ? null : `${year}-${idx}`)}
                                         >
                                             <div className="flex items-center gap-3">
-                                                <FileText className="h-4 w-4 text-blue-500 group-hover:text-blue-600" />
+                                                <FileText className="h-4 w-4 text-purple-500 group-hover:text-purple-600" />
                                                 <span className="font-medium">{item}</span>
                                             </div>
                                             {openItem === `${year}-${idx}` ? (
-                                                <ChevronDown className="h-4 w-4 text-blue-500" />
+                                                <ChevronDown className="h-4 w-4 text-purple-500" />
                                             ) : (
-                                                <ChevronRight className="h-4 w-4 text-blue-500" />
+                                                <ChevronRight className="h-4 w-4 text-purple-500" />
                                             )}
                                         </button>
                                         {openItem === `${year}-${idx}` && (
-                                            <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 border-t border-gray-200">
+                                            <div className="p-4 bg-gradient-to-r from-purple-50 to-pink-50 border-t border-gray-200">
                                                 <div className="flex items-start gap-4">
                                                     <div className="flex-1">
                                                         <p className="text-sm text-gray-600 mb-3">
@@ -317,11 +625,11 @@ const IQACPage = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex gap-3">
-                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg">
                                                         <Download className="h-4 w-4" />
                                                         Download PDF
                                                     </button>
-                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg">
+                                                    <button className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-lg hover:from-pink-600 hover:to-pink-700 transition-all duration-200 shadow-md hover:shadow-lg">
                                                         <Eye className="h-4 w-4" />
                                                         Preview
                                                     </button>
@@ -598,24 +906,23 @@ const IQACPage = () => {
                 <ModernTable title="IQAC Initiatives" data={iqacInitiatives} icon={Target} />
                 <ModernTable title="Institute Perspective Plan" data={['Institute Perspective Plan']} icon={FileText} />
 
-                {/* Double Dropdown Sections with modern design */}
-                <ModernDoubleDropdown 
+                {/* Enhanced Triple Nested Dropdown for IQAC Meetings */}
+                <TripleNestedDropdown 
                     title="IQAC Meetings & Action Taken Reports"
                     data={iqacMeetingsData}
                     openYear={openMeetingsYear}
                     setOpenYear={setOpenMeetingsYear}
-                    openItem={openMeetingsItem}
-                    setOpenItem={setOpenMeetingsItem}
+                    openSubItem={openMeetingsSubItem}
+                    setOpenSubItem={setOpenMeetingsSubItem}
                     icon={Users}
                 />
 
-                <ModernDoubleDropdown 
+                {/* Enhanced Quality Activities with table structure */}
+                <QualityActivitiesDropdown 
                     title="IQAC Quality Activities"
                     data={iqacQualityActivities}
                     openYear={openQualityYear}
                     setOpenYear={setOpenQualityYear}
-                    openItem={openQualityItem}
-                    setOpenItem={setOpenQualityItem}
                     icon={Award}
                 />
 
