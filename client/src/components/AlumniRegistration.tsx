@@ -17,6 +17,7 @@ import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { useToast } from '../hooks/use-toast';
+import { uploadImageToCloudinarySecure } from '../lib/cloudinary';
 
 const AlumniRegistration = () => {
   const { toast } = useToast();
@@ -53,21 +54,23 @@ const AlumniRegistration = () => {
   const uploadPhoto = async (file) => {
     if (!file) return null;
     
-    const formData = new FormData();
-    formData.append('photo', file);
-    
     try {
-      const response = await fetch('https://piet-admin-1.onrender.com/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
+      console.log('Uploading photo to Cloudinary...');
+      const photoUrl = await uploadImageToCloudinarySecure(file);
       
-      if (response.ok) {
-        const data = await response.json();
-        return data.url;
+      if (photoUrl) {
+        console.log('Photo uploaded successfully:', photoUrl);
+        return photoUrl;
+      } else {
+        throw new Error('Failed to upload photo to Cloudinary');
       }
     } catch (error) {
       console.error('Photo upload failed:', error);
+      toast({
+        title: "Upload Error",
+        description: "Failed to upload photo. Please try again.",
+        variant: "destructive",
+      });
     }
     return null;
   };
