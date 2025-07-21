@@ -78,12 +78,28 @@ export default function Header() {
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <Link
-              to="/alumni"
-              className="text-sm hover:text-accent-light transition-colors"
-            >
-              Alumni
-            </Link>
+            <div className="relative group">
+              <Link
+                to="/alumni"
+                className="text-sm hover:text-accent-light transition-colors"
+              >
+                Alumni
+              </Link>
+              <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md overflow-hidden z-10 mt-1 w-48">
+                <Link
+                  to="/alumni"
+                  className="block px-4 py-2 text-sm text-neutral-800 hover:bg-primary hover:text-white transition-colors"
+                >
+                  Alumni Home
+                </Link>
+                <Link
+                  to="/alumni-registration"
+                  className="block px-4 py-2 text-sm text-neutral-800 hover:bg-primary hover:text-white transition-colors"
+                >
+                  Alumni Registration
+                </Link>
+              </div>
+            </div>
             <Link
               to="/careers"
               className="text-sm hover:text-accent-light transition-colors"
