@@ -126,7 +126,7 @@ const AnnualEvents = () => {
     {
       title: "TECH FEST",
       description: "The ultimate technology festival showcasing cutting-edge innovations, coding competitions, robotics, and tech exhibitions. A platform where future engineers demonstrate their technical prowess and innovative thinking.",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80",
       highlights: [
         "AI & Machine Learning workshops",
         "Robotics competitions and exhibitions",
@@ -154,7 +154,8 @@ const AnnualEvents = () => {
       ],
       when: "February - March",
       venue: "PIET Campus",
-      category: "Technical"
+      category: "Technical",
+      featured: true
     },
     {
       title: "OJAS",
