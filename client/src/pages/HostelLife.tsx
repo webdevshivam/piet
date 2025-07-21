@@ -86,7 +86,7 @@ const HostelLife = () => {
 
             <div className="container mx-auto px-4 py-12">
                 {/* Hero Section */}
-                <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 mb-12 text-white shadow-xl">
+                <div className="bg-primary rounded-2xl p-8 mb-12 text-white shadow-xl">
                     <div className="flex items-center mb-6">
                         <div className="bg-white bg-opacity-20 rounded-full p-4 mr-6">
                             <i className="fas fa-home text-4xl"></i>
@@ -129,6 +129,99 @@ const HostelLife = () => {
                             <div>
                                 <h3 className="text-2xl font-bold text-primary">1M+</h3>
                                 <p className="text-gray-600">Sq. Ft. Built Area</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Hostel Gallery */}
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-primary mb-6 flex items-center">
+                        <i className="fas fa-images text-secondary mr-3"></i>
+                        Hostel Life Gallery
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Modern hostel room"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Modern Rooms</h3>
+                                    <p className="text-sm opacity-90">Comfortable and well-furnished</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Hostel dining hall"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Dining Hall</h3>
+                                    <p className="text-sm opacity-90">Hygienic mess with quality food</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Study area"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Study Areas</h3>
+                                    <p className="text-sm opacity-90">Quiet spaces for focused learning</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Recreation room"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Recreation</h3>
+                                    <p className="text-sm opacity-90">Indoor games and entertainment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Gymnasium"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Gymnasium</h3>
+                                    <p className="text-sm opacity-90">Modern fitness equipment</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Common area"
+                                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Common Areas</h3>
+                                    <p className="text-sm opacity-90">Social spaces for interaction</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -289,24 +382,41 @@ const HostelLife = () => {
                         <i className="fas fa-heartbeat text-secondary mr-3"></i>
                         Healthcare Services
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 className="text-xl font-semibold text-primary mb-4">Medical Facilities</h4>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>• First aid facility available 24/7</li>
-                                <li>• Hospitalization arrangements with nearby Mahatma Gandhi Hospital</li>
-                                <li>• Walking distance to medical facilities</li>
-                                <li>• Emergency ambulance service</li>
-                            </ul>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="lg:col-span-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 className="text-xl font-semibold text-primary mb-4">Medical Facilities</h4>
+                                    <ul className="space-y-2 text-gray-700">
+                                        <li>• First aid facility available 24/7</li>
+                                        <li>• Hospitalization arrangements with nearby Mahatma Gandhi Hospital</li>
+                                        <li>• Walking distance to medical facilities</li>
+                                        <li>• Emergency ambulance service</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-semibold text-primary mb-4">Health Awareness</h4>
+                                    <ul className="space-y-2 text-gray-700">
+                                        <li>• Regular health awareness campaigns</li>
+                                        <li>• Educational materials on health topics</li>
+                                        <li>• Blood donation drives</li>
+                                        <li>• Immunization programs</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h4 className="text-xl font-semibold text-primary mb-4">Health Awareness</h4>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>• Regular health awareness campaigns</li>
-                                <li>• Educational materials on health topics</li>
-                                <li>• Blood donation drives</li>
-                                <li>• Immunization programs</li>
-                            </ul>
+                        <div className="relative overflow-hidden rounded-xl shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                                alt="Healthcare facility"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                                <div className="p-4 text-white">
+                                    <h3 className="text-lg font-bold">Medical Center</h3>
+                                    <p className="text-sm opacity-90">24/7 healthcare support</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -325,7 +435,7 @@ const HostelLife = () => {
                 </div>
 
                 {/* Call to Action */}
-                <div className="text-center bg-gradient-to-r from-primary to-secondary rounded-xl p-8 text-white">
+                <div className="text-center bg-primary rounded-xl p-8 text-white">
                     <h2 className="text-3xl font-bold mb-4">Ready to Join Our Hostel Community?</h2>
                     <p className="text-xl mb-6 opacity-90">
                         Experience the perfect blend of comfort, security, and academic excellence at PIET hostels.
