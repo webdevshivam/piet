@@ -62,7 +62,6 @@ import NirfPage from "./pages/Nirf";
 import QivRankingPage from "./pages/Qiv";
 import TimesRankingPage from "./pages/TimesRanking";
 import ELibrary from "./pages/ELibrary";
-import NbaPage from "./pages/Nba";
 import OBE from "./pages/OBE";
 import EventPage from "./pages/IPR-active";
 import IQACPage from "./pages/IQAC";
