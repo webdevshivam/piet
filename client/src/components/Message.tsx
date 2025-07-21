@@ -36,27 +36,29 @@ const Message: React.FC<MessageProps> = ({
         <div className="w-24 h-1 bg-secondary mb-8 mx-auto lg:mx-0"></div>
         
         <div className="relative">
-          {/* Floating Image with Profile Info */}
-          <div className={`${reverse ? 'float-right ml-8 mb-6' : 'float-left mr-8 mb-6'} max-w-xs`}>
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+          {/* Floating Image with Profile Info - Responsive sizing */}
+          <div className={`${reverse ? 'float-right ml-6 lg:ml-8 mb-6' : 'float-left mr-6 lg:mr-8 mb-6'} w-72 lg:w-80`}>
+            <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 border border-gray-200 sticky top-4">
               <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="rounded-lg shadow-md object-cover w-full h-64 mb-4"
+                className="rounded-lg shadow-md object-cover w-full h-48 lg:h-56 mb-4"
               />
               <div className="text-center">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{name}</h3>
-                <p className="text-sm text-primary font-medium mb-3">{title}</p>
-                <p className="text-gray-600 text-sm leading-relaxed text-justify">
+                <h3 className="text-lg lg:text-xl font-bold text-gray-800 mb-2">{name}</h3>
+                <p className="text-xs lg:text-sm text-primary font-medium mb-3">{title}</p>
+                <p className="text-gray-600 text-xs lg:text-sm leading-relaxed text-justify">
                   {shortBio}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Message Content that wraps around the image */}
-          <div className="text-lg text-gray-700 leading-relaxed text-justify space-y-4 overflow-hidden">
-            {messageExcerpt}
+          {/* Message Content that wraps around the image with proper spacing */}
+          <div className="text-base lg:text-lg text-gray-700 leading-relaxed text-justify space-y-4 overflow-hidden min-h-[600px]">
+            <div className="prose prose-lg max-w-none">
+              {messageExcerpt}
+            </div>
           </div>
           
           {/* Clear float to ensure proper layout */}
