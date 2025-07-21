@@ -39,7 +39,8 @@ export default function Header() {
     { title: "Faculty", description: "Meet our educators", link: "/faculty" },
     { title: "Events", description: "Upcoming campus events", link: "/events" },
     { title: "Library", description: "Explore resources and books", link: "/library" },
-    { title: "About Us", description: "Explore resources and books", link: "/about" },
+    { title: "E-Library", description: "Access digital resources and journals", link: "/e-library" },
+    { title: "About Us", description: "Learn about our institution", link: "/about" },
 
   ];
 
@@ -88,6 +89,12 @@ export default function Header() {
               className="text-sm hover:text-accent-light transition-colors"
             >
               Careers
+            </Link>
+            <Link
+              to="/e-library"
+              className="text-sm hover:text-accent-light transition-colors"
+            >
+              E-Library
             </Link>
             <Link
               to="/nirf"

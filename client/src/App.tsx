@@ -55,6 +55,7 @@ import NaacFirstCycle from "./pages/Naac";
 import NirfPage from "./pages/Nirf";
 import QivRankingPage from "./pages/Qiv";
 import TimesRankingPage from "./pages/TimesRanking";
+import ELibrary from "./pages/ELibrary";
 import NbaPage from "./pages/Nba";
 import OBE from "./pages/OBE";
 import EventPage from "./pages/IPR-active";
@@ -114,17 +115,8 @@ function Router() {
       <Route path="/nirf" component={NirfPage} />
       <Route path="/qiv-ranking" component={QivRankingPage} />
       <Route path="/times-ranking" component={TimesRankingPage} />
-      <Route path="/nba" component={NbaPage} />
-      <Route path="/obe" component={OBE} />
-      <Route path="/event-page" component={EventPage} />
-      <Route path="/iqac" component={IQACPage} />
-
-
-
-
-
-
-      <Route path="/:rest*" component={NotFound} />
+          <Route path="/e-library" component={ELibrary} />
+          <Route path="/:rest*" component={NotFound} />
 
     </Switch>
   );
