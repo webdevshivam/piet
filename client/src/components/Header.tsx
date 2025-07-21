@@ -656,7 +656,7 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/events"
+                  href="/annual-events"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-calendar-alt mr-2"></i>Annual Events
