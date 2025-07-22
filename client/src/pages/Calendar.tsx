@@ -275,7 +275,7 @@ const tabItems: TabItem[] = academicYearData.map(yearData => ({
     ),
 }));
 
-const Calendar = () => {
+const CalendarPage = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <AccessibilityFeatures />
@@ -335,4 +335,4 @@ const Calendar = () => {
     )
 }
 
-export default Calendar
+export default CalendarPage

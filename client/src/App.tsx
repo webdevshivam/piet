@@ -19,7 +19,7 @@ import AI from "./pages/AI";
 import ComputerScience from "./pages/ComputerScience";
 import IOT from "./pages/IOT";
 import Collbration from "./pages/Collbration";
-import Calendar from "./pages/Calendar";
+import CalendarPage from "./pages/Calendar";
 import DirecrorMessage from "./pages/DirecrorMessage";
 import Registrar from "./pages/Registrar";
 import CoE from "./pages/CoE";
@@ -86,7 +86,7 @@ function Router() {
       <Route path="/computer-science" component={ComputerScience} />
       <Route path="/dep-iot" component={IOT} />
       <Route path="/collbration" component={Collbration} />
-      <Route path="/calendar" component={Calendar} />
+      <Route path="/calendar" component={CalendarPage} />
       <Route path="/director-message" component={DirecrorMessage} />
       <Route path="/registar-message" component={Registrar} />
       <Route path="/coe-message" component={CoE} />
