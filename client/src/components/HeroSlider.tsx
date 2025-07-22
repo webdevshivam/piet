@@ -72,39 +72,14 @@ export default function HeroSlider() {
               }`}
             style={{ backgroundImage: `url('${slide.backgroundImage}')` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-black/60 flex items-center">
-              <div className="container mx-auto px-4 lg:px-0">
-                <div className="max-w-2xl animate-fadeIn">
-                  <h2 className="text-white font-heading font-bold text-3xl md:text-5xl mb-6 leading-tight drop-shadow-md">
-                    {slide.title}
-                  </h2>
-                  <p className="text-white text-lg md:text-xl mb-8 drop-shadow-md">
-                    {slide.description}
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      href={slide.cta1Link}
-                      className="btn-secondary rounded-lg shadow-md hover-lift"
-                    >
-                      {slide.cta1Text}
-                    </Link>
-                    <Link
-                      href={slide.cta2Link}
-                      className="btn-outline border-white text-white hover:bg-white hover:text-primary rounded-lg shadow-md"
-                    >
-                      {slide.cta2Text}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         ))}
 
         {/* Slider Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-primary hover:bg-primary/80 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
           aria-label="Previous slide"
         >
           <i className="fas fa-chevron-left"></i>
@@ -112,7 +87,7 @@ export default function HeroSlider() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-primary hover:bg-primary/80 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
           aria-label="Next slide"
         >
           <i className="fas fa-chevron-right"></i>
@@ -124,9 +99,9 @@ export default function HeroSlider() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full focus:outline-none transition-all duration-300 ${index === currentSlide
-                  ? "bg-secondary w-8"
-                  : "bg-white/60 hover:bg-white/80"
+              className={`w-3 h-3 rounded-full focus:outline-none transition-all duration-300 shadow-md ${index === currentSlide
+                  ? "bg-primary w-8"
+                  : "bg-white/80 hover:bg-white border border-gray-300"
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />
