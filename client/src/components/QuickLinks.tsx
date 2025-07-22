@@ -66,14 +66,14 @@ const NewsMarquee = () => {
           <i className="fas fa-bullhorn text-accent mr-3 animate-pulse"></i>
           <h3 className="font-bold text-xl">Latest Updates</h3>
         </div>
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-64 overflow-hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-4">
             {/* Main spinner */}
             <div className="relative">
               <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-white"></div>
               <div className="absolute inset-0 animate-ping rounded-full h-12 w-12 border-2 border-white/20"></div>
             </div>
-            
+
             {/* Loading text with typing effect */}
             <div className="text-center">
               <p className="text-white/90 text-sm animate-pulse">Fetching latest news...</p>
@@ -83,7 +83,7 @@ const NewsMarquee = () => {
                 <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
               </div>
             </div>
-            
+
             {/* Skeleton loading cards */}
             <div className="w-full space-y-3 mt-4">
               {[1, 2].map((item) => (
@@ -115,7 +115,7 @@ const NewsMarquee = () => {
         <i className="fas fa-bullhorn text-accent mr-3"></i>
         <h3 className="font-bold text-xl">Latest Updates</h3>
       </div>
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <div className="animate-marquee-vertical space-y-4">
           {newsItems.concat(newsItems).map((item, index) => (
             <div key={`${item._id}-${index}`} className="bg-white/10 backdrop-blur-sm rounded-md p-4 border border-white/20 hover:bg-white/20 transition-colors">
@@ -178,20 +178,20 @@ export default function QuickLinks() {
     <section className="py-12 bg-white relative">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-primary-light/20 to-secondary-light/20"></div>
-      
+
       <div className="container mx-auto px-4 lg:px-0 pt-4">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-heading font-bold text-primary">Quick Access</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-3"></div>
         </div>
-        
+
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left side - News marquee (bigger) */}
           <div className="lg:col-span-1">
             <NewsMarquee />
           </div>
-          
+
           {/* Right side - Quick links */}
           <div className="lg:col-span-2">
             <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
