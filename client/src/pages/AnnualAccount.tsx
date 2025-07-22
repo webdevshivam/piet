@@ -94,7 +94,7 @@ const AnnualAccount = () => {
                 ]}
             />
 
-            <main className='container mx-auto px-4 lg:px-0 relative z-10 my-16'>
+            <main className='container mx-auto px-4 lg:px-0 relative z-10 my-16 min-h-screen'>
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-heading font-bold text-primary mb-4 leading-tight">
                         Audited Financial Statements
