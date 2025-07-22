@@ -105,8 +105,106 @@ const AnnualAccount = () => {
                     </p>
                 </div>
 
-                <div className="max-w-7xl mx-auto">
-                    <StepwiseReportTimeline data={accounts} />
+                {/* Enhanced Timeline Design */}
+                <div className="relative max-w-6xl mx-auto">
+                    {/* Timeline Line */}
+                    <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-primary opacity-30"></div>
+                    
+                    {accounts.map((account, index) => (
+                        <div key={index} className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                            {/* Timeline Node */}
+                            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-white shadow-lg z-10">
+                                <div className="absolute inset-1 bg-white rounded-full"></div>
+                            </div>
+                            
+                            {/* Content Card */}
+                            <div className={`ml-20 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
+                                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+                                    {/* Year Badge */}
+                                    <div className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3">
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-xl font-bold">{account.year}</span>
+                                            <div className="flex items-center space-x-2">
+                                                <i className="fas fa-file-invoice-dollar"></i>
+                                                <span className="text-sm opacity-90">Financial Year</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Card Content */}
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-gray-800 mb-3">
+                                            {account.title}
+                                        </h3>
+                                        <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                                            {account.description}
+                                        </p>
+                                        
+                                        {/* Highlights */}
+                                        <div className="mb-4">
+                                            <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Highlights:</h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {account.highlights.map((highlight, idx) => (
+                                                    <span key={idx} className="inline-block bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">
+                                                        {highlight}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        
+                                        {/* Download Button */}
+                                        <a
+                                            href={account.pdfUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-300 group"
+                                        >
+                                            <i className="fas fa-download group-hover:animate-bounce"></i>
+                                            <span className="font-medium">Download Statements</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Year Display on Opposite Side */}
+                            <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}>
+                                <div className="text-center">
+                                    <div className="text-6xl font-bold text-primary/20 mb-2">
+                                        {account.year.split('-')[0]}
+                                    </div>
+                                    <div className="text-lg text-gray-500">
+                                        Financial Year
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Statistics Section */}
+                <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white">
+                    <div className="text-center mb-8">
+                        <h3 className="text-2xl font-bold mb-2">Financial Archive Statistics</h3>
+                        <p className="opacity-90">Our commitment to financial transparency and accountability</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-1">{accounts.length}+</div>
+                            <div className="text-sm opacity-90">Financial Statements</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-1">10+</div>
+                            <div className="text-sm opacity-90">Years Documented</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-1">100%</div>
+                            <div className="text-sm opacity-90">Audit Compliance</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold mb-1">500+</div>
+                            <div className="text-sm opacity-90">Pages of Financial Data</div>
+                        </div>
+                    </div>
                 </div>
             </main>
 
