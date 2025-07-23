@@ -476,21 +476,21 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/idealab"
+                  href="/naac"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-star mr-2"></i>NAAC Grade ‘A’
                 </Link>
 
                 <Link
-                  href="/conference"
+                  href="/nba"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-award mr-2"></i>NBA
                 </Link>
 
                 <Link
-                  href="/fundings"
+                  href="/nirf"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-chart-bar mr-2"></i>NIRF
@@ -504,14 +504,14 @@ export default function Header() {
                 </Link>
 
                 <Link
-                  href="/activities"
+                  href="/qiv-ranking"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-trophy mr-2"></i>QIV Ranking
                 </Link>
 
                 <Link
-                  href="/publications"
+                  href="/times-ranking"
                   className="block p-3 text-neutral-800 hover:bg-primary hover:text-white transition-colors"
                 >
                   <i className="fas fa-book mr-2"></i>Times Ranking
