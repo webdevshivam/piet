@@ -18,20 +18,24 @@ const Message: React.FC<MessageProps> = ({ title, content, imageUrl, imageAlt })
             
             {/* Mobile view - Image above text */}
             <div className="block md:hidden mb-6">
-                <LazyImage
-                    src={imageUrl}
-                    alt={imageAlt}
-                    className="w-full h-auto rounded-lg shadow-lg"
-                />
+                <div className="relative p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl shadow-xl">
+                    <LazyImage
+                        src={imageUrl}
+                        alt={imageAlt}
+                        className="w-full h-auto rounded-lg shadow-lg border-4 border-white"
+                    />
+                </div>
             </div>
 
             {/* Desktop view - Text wraps around image */}
             <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                <LazyImage
-                    src={imageUrl}
-                    alt={imageAlt}
-                    className="hidden md:block float-left w-80 h-auto rounded-lg shadow-lg mr-6 mb-4"
-                />
+                <div className="hidden md:block float-left w-80 mr-6 mb-4 p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl shadow-xl">
+                    <LazyImage
+                        src={imageUrl}
+                        alt={imageAlt}
+                        className="w-full h-auto rounded-lg shadow-lg border-4 border-white"
+                    />
+                </div>
                 {content && content.split('\n').map((paragraph, index) => (
                     paragraph.trim() && (
                         <p key={index} className="mb-4 text-justify">
