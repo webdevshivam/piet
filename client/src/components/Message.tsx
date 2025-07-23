@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface MessageProps {
@@ -26,7 +27,7 @@ const Message: React.FC<MessageProps> = ({ title, content, imageUrl, imageAlt })
                         {title}
                     </h2>
                     <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                        {content.split('\n').map((paragraph, index) => (
+                        {content && content.split('\n').map((paragraph, index) => (
                             paragraph.trim() && (
                                 <p key={index} className="mb-4">
                                     {paragraph}

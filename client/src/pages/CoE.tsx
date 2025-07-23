@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -5,7 +6,6 @@ import BreadCrumb from '@/components/BreadCrumb'
 import Cta from '@/components/Cta'
 import Message from '@/components/Message'
 import { AccessibilityFeatures } from '@/components/AccessibilityFeatures'
-
 
 const CoE = () => {
     return (
@@ -21,7 +21,6 @@ const CoE = () => {
                         label: 'Controller of Examination Message', isCurrent: true
                     },
                 ]}
-
             />
             <Message
                 title="Message from the Controller of Examination"
@@ -40,4 +39,3 @@ Dr. Mathur's leadership and expertise in examination management contribute signi
 }
 
 export default CoE
-```
