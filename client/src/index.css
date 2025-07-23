@@ -326,3 +326,27 @@
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
+
+/* Mobile-specific improvements for message pages */
+@media (max-width: 768px) {
+  .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Ensure text doesn't overflow on small screens */
+  .prose {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

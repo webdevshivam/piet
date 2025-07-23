@@ -23,7 +23,7 @@ const Registrar = () => {
 
             />
             <Message
-                heading="Message from the Director"
+                heading="Message from the Registrar"
                 name="Dr. Balwan (Registrar)"
                 title="Registrar PIET"
                 imageSrc="https://www.piet.poornima.org/images/Registrar_piet.JPG"
