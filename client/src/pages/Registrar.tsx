@@ -23,59 +23,14 @@ const Registrar = () => {
 
             />
             <Message
-                heading="Message from the Registrar"
-                name="Dr. Balwan (Registrar)"
-                title="Registrar PIET"
-                imageSrc="https://www.piet.poornima.org/images/Registrar_piet.JPG"
-                imageAlt="Photo of Ms. Aarti Sharma"
-                shortBio="Poornima Institute of Engineering & Technology,registrar.piet@poornima.org"
-                messageExcerpt={
-                    <>
-                        <p>
-                            Dr. Balwan is a distinguished academician and administrator with extensive experience in civil engineering education and institutional leadership. Currently serving as the Registrar at Poornima Institute of Engineering & Technology, Jaipur, he is known for his commitment to academic excellence, research innovation, and administrative efficiency. His expertise in advanced concrete technology and structural engineering highlights his strong foundation in technical knowledge and professional practice.
+                title="Message from the Registrar"
+                content="Dr. Balwan is a distinguished academician and administrator with extensive experience in civil engineering education and institutional leadership. Currently serving as the Registrar at Poornima Institute of Engineering & Technology, Jaipur, he is known for his commitment to academic excellence, research innovation, and administrative efficiency. His expertise in advanced concrete technology and structural engineering highlights his strong foundation in technical knowledge and professional practice.
 
+As Registrar, Dr. Balwan oversees critical administrative functions including student admissions, academic records, examination coordination, and institutional compliance. His leadership ensures seamless operations and maintains the highest standards of academic integrity. With a vision to transform educational processes through technology and innovation, he continuously works toward enhancing the student experience and institutional effectiveness.
 
-
-
-                        </p>
-                        <br />
-                        <p>
-                            Dr. Balwan earned his Ph.D. in Advanced Concrete Technology from Poornima University in 2024. He completed his M.Tech. in Structural Engineering from Maharshi Dayanand University, Rohtak, in 2016. He holds a B.Tech. degree in Civil Engineering from Kurukshetra University.
-
-
-
-                        </p>
-                        <p>
-                            Dr. Balwan’s research primarily focuses on the use of sustainable materials in construction. His Ph.D. dissertation titled "An Experimental Investigation to Substitute Copper Tailing in Mortar with Fine Aggregate and Its Impact on Mechanical, Durability, and Rheological Properties of Mortar" is a significant contribution to eco-friendly construction practices. He has published multiple research papers in reputed national and international journals, including SCOPUS-indexed publications, on topics such as earthquake vibration control, mining waste utilization in concrete, and machine learning applications in material strength prediction.
-
-
-
-
-                        </p>
-                        <br />
-                        <p>
-                            With nearly a decade of teaching experience, Dr. Balwan began his career as a Teaching Associate at Dr. K. N. Modi University, Newai, Rajasthan, and later joined Poornima College of Engineering, Jaipur, as an Assistant Professor in 2017. Over the years, he has taught core civil engineering subjects such as Design of Concrete Structures, Concrete Technology, Building Materials, Structural Analysis, and Design of Steel Structures. His expertise in delivering complex technical content with clarity has been highly appreciated by students and peers alike.
-
-
-                        </p>
-                        <p>
-                            In addition to his academic roles, Dr. Balwan has held significant administrative positions. Since January 2025, he has been serving as the Registrar at Poornima Institute of Engineering & Technology, Jaipur. Prior to this, he contributed to Poornima College of Engineering as the Head of the Department, Alumni Cell Coordinator, Project In-charge, Dy. Head of Department, and In-charge of the Concrete Technology Laboratory. His administrative leadership also extends to managing academic timetables, alumni engagement activities, and mentoring students, demonstrating a holistic contribution to institutional development.
-
-                        </p>
-                        <p>
-                            Throughout his career, Dr. Balwan has been honored with several accolades, including a Certificate of Appreciation for UTOPIA 2K15 at Dr. K. N. Modi University and recognition as the Head Coordinator for civil engineering bridge design workshops. His consistent contributions to academic and extracurricular activities have earned him a reputation for excellence and leadership.
-
-
-                        </p>
-
-
-                    </>
-                }
-
-                messageLink=""
-                buttonLabel="Read More"
-                showButton={false}
-                reverse={false}
+Dr. Balwan's dedication to fostering a culture of excellence and his unwavering commitment to student success make him an invaluable leader in the PIET community. His administrative acumen and academic insights contribute significantly to the institute's mission of providing quality engineering education and creating future-ready professionals."
+                imageUrl="https://www.piet.poornima.org/images/Registrar_piet.JPG"
+                imageAlt="Photo of Dr. Balwan (Registrar)"
             />
             <Cta />
             <Footer />
