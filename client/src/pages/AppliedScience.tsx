@@ -421,47 +421,25 @@ const AppliedScience = () => {
 
 
             {/* hod message */}
+            <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+                <div className="container mx-auto px-4">
+                    <Message
+                        title="Message from the HOD"
+                        content={`"Scientific learning is best achieved by doing science"
 
+This teaching philosophy enables student community to learn and simultaneously make scientific contribution to society. We are committed to deliver an excellent graduate program of study as well as provide an opportunity for cutting-edge research in all natural and applied sciences.
 
-            <div className="w-full bg-neutral-50 p-14 border">
+I feel elated to introduce you to the Department of Applied Sciences which is the foundation of Engineers that strives for increasing the knowledge, enhancing the critical thinking, ability to change information into knowledge and power of analyzing things technically.
 
-                <Message
-                    heading="Message from the HOD"
-                    name="Dr. Sama Jain"
-                    title="HOD, Department of Applied Sciences, PIET"
-                    imageSrc="https://www.piet.poornima.org/images/hod1styr.jpg"
-                    imageAlt="Photo of Ms. Aarti Sharma"
-                    shortBio="With extensive experience in education and leadership..."
-                    messageExcerpt={
-                        <>
-                            <i>  <b>“Scientific learning is best achieved by doing science”
-                            </b></i>
-                            <br />
-                            <br />
-                            <p>
-                                This teaching philosophy enables student community to learn and simultaneously make scientific contribution to society. We are committed to deliver an excellent graduate program of study as well as provide an opportunity for cutting-edge research in all natural and applied sciences.
+Department of Applied Sciences plays a vital role in an engineering college catering to the teaching of basic Sciences and Humanities courses for engineering students of all branches. The purpose of applied sciences in Engineering study is to lay a strong foundation of basic principles of various disciplines such as Mathematics, Physics, Chemistry, Computers, Electronics, Mechanics and Communication Skills in the mind of the learners, so that they proceed to rest of their years of study with up to date knowledge and training of basic engineering skills.
 
-                            </p>
-                            <br />
-                            <p>
-                                I feel elated to introduce you to the Department of Applied Sciences which is the foundation of Engineers that strives for increasing the knowledge, enhancing the critical thinking, ability to change information into knowledge and power of analyzing things technically.
-
-                            </p>
-                            <br />
-                            <p>
-                                Department of Applied Sciences plays a vital role in an engineering college catering to the teaching of basic Sciences and Humanities courses for engineering students of all branches. The purpose of applied sciences in Engineering study is to lay a strong foundation of basic principles of various disciplines such as Mathematics, Physics, Chemistry, Computers, Electronics, Mechanics and Communication Skills in the mind of the learners, so that they proceed to rest of their years of study with up to date knowledge and training of basic engineering skills.
-
-                            </p>
-                        </>
-                    }
-
-                    messageLink=""
-                    buttonLabel="Read More"
-                    showButton={false}
-                    reverse={false}
-                />
-
-            </div>
+- Dr. Sama Jain
+HOD, Department of Applied Sciences, PIET`}
+                        imageUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                        imageAlt="Dr. Sama Jain - HOD, Department of Applied Sciences"
+                    />
+                </div>
+            </section>
 
 
             {/* faculty cards */}
